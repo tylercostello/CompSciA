@@ -5,7 +5,7 @@
 //Date -
 //Class -
 //Lab  -
-
+package Unit0;
 public class AsciiArt
 {
 	public static void main ( String[] args )
