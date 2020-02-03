@@ -6,8 +6,8 @@
 package Unit2;
 public class Trap
 {
-	public static double area( int base1, int base2, int height )
+	public static double area( double base1, double base2, double height )
 	{
-		return 0;
+		return (base2+base1)*height/2;
 	}
 }
