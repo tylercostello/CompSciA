@@ -24,3 +24,19 @@ public class AsciiArt
 
 	}
 }
+/*
+Tyler Costello 
+
+
+Fish
+
+
+
+
+
+         |   - -------                     
+        || --      o o --                  
+          |||         == -            
+       ||         -- -- -           
+         |--------                     
+*/

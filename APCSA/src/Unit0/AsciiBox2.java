@@ -26,3 +26,19 @@ public class AsciiBox2
 		
 	}
 }
+/*
+++++++++++++++++++++++++++ 
+AAAAAAAAAAAAAAAAAAAAAAAAAA 
+++                      ++
+++                      ++
+++                      ++
+++                      ++
+++                      ++
+++     Comp Sci A       ++
+++                      ++
+++                      ++
+++                      ++
+++                      ++
+AAAAAAAAAAAAAAAAAAAAAAAAAA 
+++++++++++++++++++++++++++ 
+*/

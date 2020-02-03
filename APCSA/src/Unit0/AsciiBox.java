@@ -19,3 +19,18 @@ public class AsciiBox
 
 	}
 }
+/*
+Tyler Costello 	  1-31-20 
+
+
++++++++++++++++++++++++++ 
++++++++++++++++++++++++++ 
+AAAAAAAAAAAAAAAAAAAAAAAAA 
++++++++++++++++++++++++++ 
++++++++++++++++++++++++++ 
+AAAAAAAAAAAAAAAAAAAAAAAAA 
++++++++++++++++++++++++++ 
++++++++++++++++++++++++++ 
+AAAAAAAAAAAAAAAAAAAAAAAAA 
+
+*/

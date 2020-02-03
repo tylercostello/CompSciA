@@ -63,7 +63,34 @@ public class Variables
 		System.out.println("*8 bit - booleanOne = "+booleanOne+"\t\t*");
 		System.out.println("*8 bit - stringOne = "+stringOne+"\t\t*");
 		System.out.println("/////////////////////////////////");
-
+/*
+ * /////////////////////////////////
+*                               *
+*        integer types          *
+*                               *
+*8 bit - byteOne = 127		*
+*16 bit - shortOne = 128		*
+*32 bit - intOne = 129		*
+*64 bit - longOne = 130		*
+/////////////////////////////////
+*                               *
+*        real types          *
+*                               *
+*32 bit - floatOne = 131.0		*
+*64 bit - doubleOne = 132.0		*
+/////////////////////////////////
+*                               *
+*        other integer types          *
+*                               *
+*16 bit - charOne = A		*
+/////////////////////////////////
+*                               *
+*        other types          *
+*                               *
+*8 bit - booleanOne = true		*
+*8 bit - stringOne = Hello World		*
+/////////////////////////////////
+ */
 
 
 
