@@ -19,7 +19,7 @@ public class TrapRunner
 
 
 /*
-EXPECTED OUTPUT
+OUTPUT
 
 9.0
 38.5

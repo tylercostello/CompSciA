@@ -28,6 +28,55 @@ public class DistanceRunner {
 		distance.setCoordinates(x1, y1, x2, y2);
 		distance.calcDistance();
 		distance.print();
+		
+		System.out.println("Enter X1 :: "+1);
+		System.out.println("Enter Y1 :: "+1);
+		System.out.println("Enter X2 :: "+2);
+		System.out.println("Enter Y2 :: "+1);
+		distance.setCoordinates(1, 1, 2, 1);
+		distance.calcDistance();
+		distance.print();
+
+		System.out.println("Enter X1 :: "+1);
+		System.out.println("Enter Y1 :: "+1);
+		System.out.println("Enter X2 :: "+-2);
+		System.out.println("Enter Y2 :: "+2);
+		distance.setCoordinates(1, 1, -2, 2);
+		distance.calcDistance();
+		distance.print();
+
+		System.out.println("Enter X1 :: "+1);
+		System.out.println("Enter Y1 :: "+1);
+		System.out.println("Enter X2 :: "+0);
+		System.out.println("Enter Y2 :: "+0);
+		distance.setCoordinates(1, 1, 0, 0);
+		distance.calcDistance();
+		distance.print();
+
 
 	}
 }
+/*
+Output
+Enter X1 :: 1
+Enter Y1 :: 1
+Enter X2 :: 1
+Enter Y2 :: 2
+1.000
+Enter X1 :: 1
+Enter Y1 :: 1
+Enter X2 :: 2
+Enter Y2 :: 1
+1.000
+Enter X1 :: 1
+Enter Y1 :: 1
+Enter X2 :: -2
+Enter Y2 :: 2
+3.162
+Enter X1 :: 1
+Enter Y1 :: 1
+Enter X2 :: 0
+Enter Y2 :: 0
+1.414
+
+*/
