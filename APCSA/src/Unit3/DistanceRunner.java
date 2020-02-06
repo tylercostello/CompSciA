@@ -58,11 +58,13 @@ public class DistanceRunner {
 }
 /*
 Output
+The first one is user input and the rest are automatically printed to demonstrate the test cases
+
 Enter X1 :: 1
-Enter Y1 :: 1
-Enter X2 :: 1
-Enter Y2 :: 2
-1.000
+Enter Y1 :: 2
+Enter X2 :: 3
+Enter Y2 :: 4
+2.828
 Enter X1 :: 1
 Enter Y1 :: 1
 Enter X2 :: 2
@@ -78,5 +80,6 @@ Enter Y1 :: 1
 Enter X2 :: 0
 Enter Y2 :: 0
 1.414
+
 
 */

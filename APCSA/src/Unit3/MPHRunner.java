@@ -63,6 +63,8 @@ public class MPHRunner
 	}
 }
 /*
+This program asks for the user input on the first case then prints all the test cases automatically.
+
 Enter the distance :: 1
 Enter the hours :: 2
 Enter the minutes :: 3
