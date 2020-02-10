@@ -16,7 +16,8 @@ public class NumberVerifyRunner
 		//add in input
 		System.out.println("5 is odd :: " + NumberVerify.isOdd(5));
 		System.out.println("5 is even :: " + NumberVerify.isEven(5));
-		
+		System.out.println("-850 is odd :: " + NumberVerify.isOdd(-850));
+		System.out.println("-850 is even :: " + NumberVerify.isEven(-850));
 		//add in more test cases
 	}
 }
