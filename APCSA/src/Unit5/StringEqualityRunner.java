@@ -12,6 +12,8 @@ public class StringEqualityRunner
 {
 	public static void main( String args[] )
 	{
+		StringEquality checker = new StringEquality("ABC","CBA");
+		System.out.println(checker.toString());
 		//add test cases
 		
 	}

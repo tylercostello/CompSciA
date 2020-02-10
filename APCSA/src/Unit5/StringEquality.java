@@ -18,19 +18,25 @@ public class StringEquality
 
 	public StringEquality(String one, String two)
 	{
+		setWords(one,two);
 	}
 
 	public void setWords(String one, String two)
 	{
+		wordOne = one;
+		wordTwo = two;
 	}
 
 	public boolean checkEquality( )
 	{
-		return false;
+		return wordOne.contentEquals(wordTwo);
 	}
 
 	public String toString()
 	{
-		return wordOne + " does not have the same letters as " + wordTwo + "\n";
+		if (checkEquality())
+			return wordOne + " has the same letters as " + wordTwo + "\n";
+		else
+			return wordOne + " does not have the same letters as " + wordTwo + "\n";
 	}
 }
