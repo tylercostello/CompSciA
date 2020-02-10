@@ -9,6 +9,11 @@ public class AddSubMult
 {
 	public static double check( double a, double b )
 	{
-		return 0;
+		if (a>b) 
+			return Math.floor((a-b)* 100) / 100;
+		else if (b>a)
+			return Math.floor((b-a)* 100) / 100;
+		else
+			return Math.floor((a*b)* 100) / 100;
 	}
 }

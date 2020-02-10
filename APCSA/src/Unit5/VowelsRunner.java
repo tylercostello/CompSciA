@@ -3,7 +3,7 @@
 //Name -
 //Date -
 package Unit5;
-public class JavaStringLabRunner
+public class VowelsRunner
 {
 	public static void main( String args[] )
 	{
