@@ -13,6 +13,7 @@ public class WordsCompareRunner
    public static void main( String args[] )
    {
 		//add test cases
-
+	   WordsCompare comp = new WordsCompare("193", "1910");
+	   System.out.println(comp.toString());
 	}
 }
