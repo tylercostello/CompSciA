@@ -9,6 +9,9 @@ public class LetterRemoverRunner
 	public static void main( String args[] )
 	{
 		//add test cases		
+		LetterRemover remove = new LetterRemover();
+		remove.setRemover("ssssssssxssssesssssesss", 's');
+		System.out.println(remove.removeLetters());
 											
 	}
 }

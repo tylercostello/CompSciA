@@ -35,11 +35,12 @@ public class LetterRemover
 		int length = sentence.length();
 		String temp = "";
 		while (x<length) {
-			if (sentence.charAt(x)==lookFor) {
-				temp.append(sentence.charAt(x))
+			if (sentence.charAt(x)!=lookFor) {
+				temp=temp+sentence.substring(x,x+1);
 			}
+			x++;
 		}
-
+		sentence=temp;
 		String cleaned=sentence;
 		return cleaned;
 	}
