@@ -27,3 +27,16 @@ public class LetterRemoverRunner
 											
 	}
 }
+/*
+Output
+I am Sam I am - letter to remove a
+I m Sm I m
+ssssssssxssssesssssesss - letter to remove s
+xee
+qwertyqwertyqwerty - letter to remove a
+qwertyqwertyqwerty
+abababababa - letter to remove b
+aaaaaa
+abaababababa - letter to remove x
+abaababababa
+*/

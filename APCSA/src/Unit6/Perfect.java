@@ -33,7 +33,13 @@ public class Perfect
 
 	public String toString() {
 		
-		return String.valueOf(isPerfect());
+		 if (isPerfect())
+			 return number + " is perfect";
+		 else 
+			 return number + " is not perfect";
+			 
+		 
+		 
 	}
 	
 	//add a toString	

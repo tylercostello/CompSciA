@@ -26,19 +26,21 @@ public class VowelsRunner
 	}
 }
 /*
- no
-no
-yes
-yes
-no
-yes
-no
-no
+Output
 no
 no
 yes
 yes
 no
+yes
+no
+no
+no
+no
+yes
+yes
+no
+
 
  */
 

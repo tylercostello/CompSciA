@@ -43,7 +43,9 @@ public class DiscountRunner
 
 	}
 }
-/*Enter the original bill amount :: 123
+/*
+Output
+Enter the original bill amount :: 123
 Bill after discount :: 123.00
 Bill after discount :: 500.00
 Bill after discount :: 2125.00
