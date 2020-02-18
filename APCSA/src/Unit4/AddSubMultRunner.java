@@ -20,3 +20,15 @@ public class AddSubMultRunner
 		System.out.println( AddSubMult.check( 5342, 323 ) );						
 	}
 }
+/*
+Output
+10.0
+10.0
+400.0
+100.0
+1.0
+1.0
+2.6
+1.4
+5019.0
+*/

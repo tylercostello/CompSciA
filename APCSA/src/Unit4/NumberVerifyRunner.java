@@ -37,3 +37,19 @@ public class NumberVerifyRunner
 		System.out.println("-850 is even :: " + NumberVerify.isEven(-850));
 	}
 }
+/*
+Output
+Enter a whole number :: 5
+5 is odd :: true
+5 is even :: false
+111 is odd :: true
+111 is even :: false
+2000 is odd :: false
+2000 is even :: true
+-99 is odd :: true
+-99 is even :: false
+1111 is odd :: true
+1111 is even :: false
+-850 is odd :: false
+-850 is even :: true
+*/
