@@ -165,14 +165,25 @@ public class Review {
        // set the file contents to start after this word
    
    
-   double sentimentTotal=0.0;
-   String reviewString = textToString(filename);
-   String[] reviewWords = reviewString.split(" ", 0); 
-   for (int i=0;i<reviewWords.length; i ++){
-	  sentimentTotal=sentimentTotal+sentimentVal(reviewWords[i]);
-   }
-
-   return sentimentTotal; 
+	  double sentimentTotal = 0.0;
+		String word = "";
+		String reviewString = textToString(filename);
+		for (int i = 0; i < reviewString.length(); i++) {
+			if(reviewString.charAt(i) != ' ') {
+				word += reviewString.charAt(i);
+			}
+			else {
+				sentimentTotal += sentimentVal(word);
+				word = "";
+			}
+		}
+/*
+		String[] reviewWords = reviewString.split(" ", 0);
+		for (int i = 0; i < reviewWords.length; i++) {
+			sentimentTotal = sentimentTotal + sentimentVal(reviewWords[i]);
+		}
+*/
+		return sentimentTotal;
   }
 
 
