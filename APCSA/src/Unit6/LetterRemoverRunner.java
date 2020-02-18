@@ -10,8 +10,20 @@ public class LetterRemoverRunner
 	{
 		//add test cases		
 		LetterRemover remove = new LetterRemover();
+		remove.setRemover("I am Sam I am", 'a');
+		System.out.println(remove.toString());
+		
 		remove.setRemover("ssssssssxssssesssssesss", 's');
-		System.out.println(remove.removeLetters());
+		System.out.println(remove.toString());
+		
+		remove.setRemover("qwertyqwertyqwerty", 'a');
+		System.out.println(remove.toString());
+		
+		remove.setRemover("abababababa", 'b');
+		System.out.println(remove.toString());
+		
+		remove.setRemover("abaababababa", 'x');
+		System.out.println(remove.toString());
 											
 	}
 }
