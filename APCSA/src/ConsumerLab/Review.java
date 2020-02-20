@@ -169,20 +169,23 @@ public class Review {
 		String word = "";
 		String reviewString = textToString(filename);
 		for (int i = 0; i < reviewString.length(); i++) {
-			if(reviewString.charAt(i) != ' ') {
+			
+			if(reviewString.charAt(i) != ' ' || getPunctuation(word) != "") {
 				word += reviewString.charAt(i);
 			}
-			else {
+			
+			if(reviewString.charAt(i) == ' ') {
 				sentimentTotal += sentimentVal(word);
 				word = "";
 			}
+			if(getPunctuation(word) != "") {
+				sentimentTotal += sentimentVal(word.substring(0,word.length()-1));
+				word = "";
+			}
+			
 		}
-/*
-		String[] reviewWords = reviewString.split(" ", 0);
-		for (int i = 0; i < reviewWords.length; i++) {
-			sentimentTotal = sentimentTotal + sentimentVal(reviewWords[i]);
-		}
-*/
+
+
 		return sentimentTotal;
   }
 
@@ -214,21 +217,26 @@ public class Review {
     return stars; 
   }
   public static String fakeReview(String filename){
-	  String newReview="";
-	  
+	   String newReview="";
+	   String word="";
 	   String reviewString = textToString(filename);
-	   String[] reviewWords = reviewString.split(" ", 0); 
-	   for (int i=0;i<reviewWords.length; i ++){
-		   if (reviewWords[i].charAt(0)=='*'){
-			  // System.out.println(sentimentVal(reviewWords[i].substring(1)));
-			   if (sentimentVal(reviewWords[i].substring(1))<0)
-				   reviewWords[i]=randomPositiveAdj();
-			   else
-				   reviewWords[i]=reviewWords[i].substring(1);
-		   }
-		   newReview=newReview + reviewWords[i] + " ";
-	   }
+	   boolean added=false;
+	   int x = 0;
 	  
+	   for (int i = 0; i < reviewString.length(); i++) {
+		   if(reviewString.charAt(i)=='*'){
+				newReview+=randomPositiveAdj()+ " ";
+				x=i;
+				while (reviewString.charAt(x) != ' '){
+					x++;
+				}
+				i=x;
+			}
+		   else{
+				newReview+=reviewString.charAt(i);
+			}
+	   }
+	   
 	  return newReview;
   }
 }
