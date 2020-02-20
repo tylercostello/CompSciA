@@ -226,6 +226,7 @@ public class Review {
 	   for (int i = 0; i < reviewString.length(); i++) {
 		   if(reviewString.charAt(i)=='*'){
 			   //newReview+=randomAdjective()+ " ";
+			   //newReview+=randomNegativeAdj()+ " ";
 				newReview+=randomPositiveAdj()+ " ";
 				x=i;
 				while (reviewString.charAt(x) != ' '){
