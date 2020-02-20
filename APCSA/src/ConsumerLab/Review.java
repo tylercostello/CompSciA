@@ -170,11 +170,11 @@ public class Review {
 		String reviewString = textToString(filename);
 		for (int i = 0; i < reviewString.length(); i++) {
 			
-			if(reviewString.charAt(i) != ' ' || getPunctuation(word) != "") {
+			if(reviewString.charAt(i) != ' ') {
 				word += reviewString.charAt(i);
 			}
 			
-			if(reviewString.charAt(i) == ' ') {
+			else if(reviewString.charAt(i) == ' ') {
 				sentimentTotal += sentimentVal(word);
 				word = "";
 			}
