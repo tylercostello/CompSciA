@@ -40,21 +40,14 @@ public class Triples
 		
 		return 1;
 	}
+	public int getGreatestCommonFactor(int a, int b, int c) {
+		return greatestCommonFactor(a,b,c);
+	}
 
-	public String toString()
+	public String toString(int a, int b, int c)
 	{
 		String output="";
-		int a=0;
-		int b=0;
-		int c=0;
-		for (a=0; a < number; a++) {
-			for (b=0; b < number; b++) {
-				for (c=0; c < number; c++) {
-					
-				}
-			}
-		}
-
+		output=""+a+" "+b+" "+c;
 
 
 

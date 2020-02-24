@@ -17,10 +17,15 @@ public class RPSRunner
 			String player = "";
 		
 			out.print("type in your prompt [R,P,S] :: ");
-			
+			response=keyboard.next().charAt(0);
+			//System.out.println(response);
 			//read in the player value
 		
 			RockPaperScissors game = new RockPaperScissors();		
+			game.setPlayers(""+response);
+			//System.out.println(response);
+			System.out.println(game.determineWinner());
+			//System.out.println(response);
 	}
 }
 
