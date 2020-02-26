@@ -28,6 +28,11 @@ public class RPSRunner
 			//System.out.println(response);
 	}
 }
+//Output
+//type in your prompt [R,P,S] :: R
+//R
+//P
+//Computer Wins
 
 
 

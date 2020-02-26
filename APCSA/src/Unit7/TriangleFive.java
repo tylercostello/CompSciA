@@ -33,22 +33,30 @@ public class TriangleFive
 	{
 		String output="";
 		int count=amount;
+		char myLetter=letter;
 		//System.out.println(count);
 		//System.out.println(letter);
-		for (int i =0; i<amount; i++) {
+		//int newAmount=amount;
+		for (int j=amount; j>0;j--){
+		count=amount;
+		myLetter=letter;
+		
+		for (int i =0; i<j; i++) {
 			//System.out.println("e");
 			for (int x=0; x<count; x++) {
-				output=output+letter;
+				output=output+myLetter;
 				
 			}
 			output=output+" ";
-			letter++;
-			if (letter=='[') {
-				letter='A';
+			myLetter++;
+			if (myLetter=='[') {
+				myLetter='A';
 			}
 			count--;
+			
 		}
-		
+		output+="\n";
+		}
 		return output;
 	}
 }
