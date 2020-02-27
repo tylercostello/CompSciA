@@ -14,6 +14,7 @@ public class Deck{
 	
 	private List<Card> cards;
 	private int top;
+	private int size=0;
 	
 
    //make a Deck constructor
@@ -25,9 +26,28 @@ public class Deck{
 		top=51;
 		for (String suit : SUITS) {
 			for (int face=1; face<14; face++) {
-				cards.add(new BlackJackCard(suit,face));
+				//cards.add(new BlackJackCard(suit,face));
+				cards.add(new Card(suit,face));
 			}
 		}
+	}
+	public Deck(ArrayList<String> rank, ArrayList<String> suit, ArrayList<Integer> values)
+	{
+		
+		cards=new ArrayList<Card>();
+		top=51;
+		for (String suitType : suit) {
+			for (int i=0; i <rank.size();i++) {
+				cards.add(new Card(rank.get(i),suitType,values.get(i)));
+				size++;
+			}
+		}
+	}
+	public boolean isEmpty() {
+		return size==0;
+	}
+	public int size() {
+		return size;
 	}
 	public Card dealCard() {
 		top--;

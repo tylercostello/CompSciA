@@ -10,17 +10,36 @@ public class Card
 	//instance variables
 		String suit="";
 		int face=0;
+		int pointValue=0;
+		String rank="";
 
   	//constructors
 		public Card(String suit,int face) {
 			this.suit=suit;
 			this.face=face;
 		}
+		public Card(String cardRank, String cardSuit, int cardPointValue) {
+			this.rank=cardRank;
+			this.suit=cardSuit;
+			this.pointValue=cardPointValue;
+		}
 
 	// modifiers
 		//set methods
 		public void setFace(int face) {
 			this.face=face;
+		}
+		public int getPointValue() {
+			return pointValue;
+		}
+		public void setPointValue(int pointValue) {
+			this.pointValue = pointValue;
+		}
+		public String getRank() {
+			return rank;
+		}
+		public void setRank(String rank) {
+			this.rank = rank;
 		}
 		public void setSuit(String suit) {
 			this.suit=suit;
@@ -39,7 +58,12 @@ public class Card
 
   	//toString
 		public String toString() {
+			if (pointValue==0) {
 			return ""+FACES[face]+" of "+getSuit();
+			}
+			else {
+				return rank+" of "+suit+" (Point Value of "+pointValue+")";
+			}
 		}
 
  }
