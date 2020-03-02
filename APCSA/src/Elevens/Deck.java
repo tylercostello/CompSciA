@@ -14,7 +14,7 @@ public class Deck{
 	
 	private List<Card> cards;
 	private int top;
-	private int size=0;
+	private int size=52;
 	
 
    //make a Deck constructor
@@ -22,6 +22,7 @@ public class Deck{
    	//set top to the top of the deck 51
 	public Deck()
 	{
+		size=52;
 		cards=new ArrayList<Card>();
 		top=51;
 		for (String suit : SUITS) {
@@ -31,31 +32,47 @@ public class Deck{
 			}
 		}
 	}
-	public Deck(ArrayList<String> rank, ArrayList<String> suit, ArrayList<Integer> values)
+	public Deck(String[] rank, String[] suit, int[] values)
 	{
-		
+		size=suit.length*values.length;
 		cards=new ArrayList<Card>();
-		top=51;
+		top=size-1;
 		for (String suitType : suit) {
-			for (int i=0; i <rank.size();i++) {
-				cards.add(new Card(rank.get(i),suitType,values.get(i)));
-				size++;
+			for (int i=0; i <rank.length;i++) {
+				
+				cards.add(new Card(rank[i],suitType,values[i]));
+				
 			}
 		}
 	}
 	public boolean isEmpty() {
-		return size==0;
+		return top<0;
 	}
 	public int size() {
 		return size;
 	}
 	public Card dealCard() {
-		top--;
+		
+		System.out.println(!isEmpty());
+		if (!isEmpty()) {
+			size--;
+			top--;
 		return cards.get(top+1);
+
+		}
+		else {
+			return new Card();
+		}
+
 	}
 	
 	public void shuffle() {
 		Collections.shuffle(cards); 
+		top=51;
+		size=52;
+	}
+	public void reset() {
+		size=52;
 		top=51;
 	}
    	//loop through all suits

@@ -14,6 +14,9 @@ public class Card
 		String rank="";
 
   	//constructors
+		public Card() {
+			
+		}
 		public Card(String suit,int face) {
 			this.suit=suit;
 			this.face=face;
@@ -55,6 +58,18 @@ public class Card
 			return suit;
 		}
 		
+		
+		public boolean matches(Card otherCard) {
+			boolean isEqual=false;
+			if (this.getSuit().contentEquals(otherCard.getSuit())&&this.getFace()==otherCard.getFace()) {
+				isEqual=true;
+			}
+			else if (this.getSuit().contentEquals(otherCard.getSuit())&&this.getRank().contentEquals(otherCard.getRank()) && this.getPointValue()==otherCard.getPointValue()) {
+				isEqual=true;
+			}
+			
+			return isEqual;
+		}
 
   	//toString
 		public String toString() {
