@@ -9,7 +9,7 @@ public class DeckRunner
 	public static void main( String args[] )
 	
 	{
-		String[] ranks = {"jack", "queen", "king"};
+		/*String[] ranks = {"jack", "queen", "king"};
 		String[] suits = {"blue", "red"};
 		int[] pointValues = {11, 12, 13};
 		Deck d = new Deck(ranks, suits, pointValues);
@@ -19,7 +19,7 @@ public class DeckRunner
 		{
 			System.out.println("Ran");
 			System.out.println( d.dealCard() );
-		}
+		}*/
 		Deck test = new Deck();
 		
 		System.out.println( "All cards in order." );
