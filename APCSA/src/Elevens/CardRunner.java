@@ -22,11 +22,16 @@ public class CardRunner
 		Card three = new Card("CLUBS", 4);
 		out.println(three);
 
-		Card four = new Card("SPADES", 12);
+		Card four = new Card("CLUBS", 4);
 		out.println(four);
 
 		Card five = new Card("HEARTS", 12);
 		out.println(five);
-
+		
+		Card six = new Card("Queen", "Clubs", 12);
+		out.println(six.toString());
+		
+		Card seven = new Card("Jack", "Clubs", 11);
+		out.println(four.matches(three));
 	}
 }

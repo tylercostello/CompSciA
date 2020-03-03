@@ -61,11 +61,17 @@ public class Card
 		
 		public boolean matches(Card otherCard) {
 			boolean isEqual=false;
-			if (this.getSuit().contentEquals(otherCard.getSuit())&&this.getFace()==otherCard.getFace()) {
-				isEqual=true;
+			if (getFace()!=0){
+				if (this.getSuit().equals(otherCard.getSuit())&&this.getFace()==otherCard.getFace()) {
+					//System.out.println("1");
+					isEqual=true;
+				}
 			}
-			else if (this.getSuit().contentEquals(otherCard.getSuit())&&this.getRank().contentEquals(otherCard.getRank()) && this.getPointValue()==otherCard.getPointValue()) {
-				isEqual=true;
+			else{
+				if (this.getSuit().equals(otherCard.getSuit())&&this.getRank().equals(otherCard.getRank()) && this.getPointValue()==otherCard.getPointValue()) {
+					//System.out.println("2");
+					isEqual=true;
+				}
 			}
 			
 			return isEqual;
