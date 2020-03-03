@@ -35,10 +35,16 @@ public class Card
 		public int getPointValue() {
 			return pointValue;
 		}
+		public int pointValue() {
+			return pointValue;
+		}
 		public void setPointValue(int pointValue) {
 			this.pointValue = pointValue;
 		}
 		public String getRank() {
+			return rank;
+		}
+		public String rank() {
 			return rank;
 		}
 		public void setRank(String rank) {
@@ -55,6 +61,9 @@ public class Card
 			return face;
 		}
 		public String getSuit() {
+			return suit;
+		}
+		public String suit() {
 			return suit;
 		}
 		

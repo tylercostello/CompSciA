@@ -29,7 +29,7 @@ public class DeckRunner
 			System.out.println( test.dealCard() );
 		}
 		
-		test.shuffle();	
+		//test.shuffle();	
 		test.reset();
 		
 		System.out.println( "\n\nAll cards after shuffling." );

@@ -53,7 +53,7 @@ public class Deck{
 	}
 	public Card dealCard() {
 		
-		System.out.println(!isEmpty());
+		//System.out.println(!isEmpty());
 		if (!isEmpty()) {
 			size--;
 			top--;
@@ -65,15 +65,45 @@ public class Deck{
 		}
 
 	}
+public Card deal() {
+		
+		//System.out.println(!isEmpty());
+		if (!isEmpty()) {
+			size--;
+			top--;
+			Card returnCard = cards.get(top+1);
+			cards.remove(returnCard);
+		return returnCard;
+
+		}
+		else {
+			return new Card();
+		}
+
+	}
 	
-	public void shuffle() {
-		Collections.shuffle(cards); 
+	public void shuffle(int[] shuffledArray) {
+		/*Collections.shuffle(cards); 
 		top=51;
-		size=52;
+		size=52;*/
+		ArrayList<Card> shuffledDeck = new ArrayList<Card>();
+		for (int i=0; i<shuffledDeck.size();i++) {
+			shuffledDeck.set(i, cards.get(shuffledArray[i]));
+		}
+		cards=shuffledDeck;
+		
+		
 	}
 	public void reset() {
 		size=52;
 		top=51;
+	}
+	public String toString() {
+		String returnString="";
+		for (Card card : cards) {
+			returnString+=" "+card.toString();
+		}
+		return returnString;
 	}
    	//loop through all suits
    		//loop through all faces 1 to 13
