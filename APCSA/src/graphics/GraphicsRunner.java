@@ -6,7 +6,9 @@
 //Class -
 //Lab  -
 package graphics;
-import javax.swing.JFrame; 
+import javax.swing.JFrame;
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,9 +23,11 @@ public class GraphicsRunner extends JFrame
 
 		setSize(WIDTH,HEIGHT);
 
-		getContentPane().add(new ShapePanel());
+		//getContentPane().add(new ShapePanel());
 
-		//getContentPane().add(new MovingShapePanel());
+		getContentPane().add(new MovingShapePanel());
+		//sh = new Shape(200,200,10,10,Color.RED,5,5);
+		//Shape myShape= new Shape(100,100,10,5, Color.BLACK,0,0);
 
 		setVisible(true);
 
