@@ -58,15 +58,18 @@ public class DeckTesterAct4 {
 		String[] ranks2 = {"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","jack", "queen", "king"};
 		String[] suits2 = {"clubs", "hearts","spades","diamonds"};
 		int[] pointValues2 = {1,2,3,4,5,6,7,8,9,10,11, 12, 13};
-		Deck d2 = new Deck(ranks, suits, pointValues);
+		Deck d2 = new Deck(ranks2, suits2, pointValues2);
+		//System.out.println("  toString:\n" + d2.toString());
 		int VALUE_COUNT = 52;
 		int[] values1 = new int[VALUE_COUNT];
 		for (int i = 0; i < values1.length; i++) {
 			values1[i] = i;
 		}
+		System.out.println("  toString:\n" + d2.toString());
 		int[] shuffledArray=Shuffler.selectionShuffle(values1);
+
 		d2.shuffle(shuffledArray);
-		System.out.println("  toString:\n" + d.toString());
+		System.out.println("  toString:\n" + d2.toString());
 		
 		
 	}

@@ -87,10 +87,14 @@ public Card deal() {
 		top=51;
 		size=52;*/
 		ArrayList<Card> shuffledDeck = new ArrayList<Card>();
-		for (int i=0; i<shuffledDeck.size();i++) {
-			shuffledDeck.set(i, cards.get(shuffledArray[i]));
+		for (int i=0; i<cards.size();i++) {
+			
+			shuffledDeck.add(cards.get(shuffledArray[i]));
+
 		}
 		cards=shuffledDeck;
+
+
 		
 		
 	}
