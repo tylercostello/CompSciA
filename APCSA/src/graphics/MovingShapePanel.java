@@ -28,7 +28,7 @@ public class MovingShapePanel extends JPanel implements Runnable
 
 
 		new Thread(this).start();
-		sh = new Shape(200,200,10,10,Color.RED,10,10);
+		sh = new Shape(6,6,10,10,Color.RED,4,3);
 	}
 
 	public void update(Graphics window)
