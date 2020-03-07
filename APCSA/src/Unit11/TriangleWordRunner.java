@@ -25,3 +25,40 @@ public class TriangleWordRunner
 		}
 	}
 }
+//Output
+//Enter a word: 
+//a
+//a
+//Do you want to continue? 
+//y
+//Enter a word: 
+//box
+//b
+//bobo
+//boxboxbox
+//Do you want to continue? 
+//y
+//Enter a word: 
+//toad
+//t
+//toto
+//toatoatoa
+//toadtoadtoadtoad
+//Do you want to continue? 
+//y
+//Enter a word: 
+//fishy
+//f
+//fifi
+//fisfisfis
+//fishfishfishfish
+//fishyfishyfishyfishyfishy
+//Do you want to continue? 
+//y
+//Enter a word: 
+//dog
+//d
+//dodo
+//dogdogdog
+//Do you want to continue? 
+//n
