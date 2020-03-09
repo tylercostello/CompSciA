@@ -11,7 +11,7 @@ public class ToyStoreRunner
 {
 	public static void main( String args[] )
 	{
-		ToyStore sto = new ToyStore();
+		ToyStore33 sto = new ToyStore33();
 		System.out.println( sto.toString() );
 		sto.loadToys("sorry bat sorry sorry sorry train train teddy teddy ball ball" );
 		System.out.println( sto );	
