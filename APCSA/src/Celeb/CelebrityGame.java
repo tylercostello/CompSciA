@@ -7,8 +7,12 @@ import java.util.ArrayList;
  * @author cody.henrichsen
  * @version 2.3 25/09/2018 refactored the prepareGame and play methods
  */
+
 public class CelebrityGame
 {
+	private ArrayList<Celebrity> celebGameList;
+	public Celebrity gameCelebrity;
+	public CelebrityFrame gameWindow;
 	/**
 	 * A reference to a Celebrity or subclass instance.
 	 */
@@ -26,6 +30,8 @@ public class CelebrityGame
 	 */
 	public CelebrityGame()
 	{
+		celebGameList=new ArrayList<Celebrity>();
+		gameWindow = new CelebrityFrame(this);
 	}
 
 	/**
@@ -33,6 +39,9 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
+		celebGameList=new ArrayList<Celebrity>();
+		gameWindow.replaceScreen("START");
+		
 	}
 
 	/**
@@ -70,7 +79,7 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		
+		celebGameList.add(new Celebrity(name,guess));
 	}
 
 	/**
@@ -80,6 +89,8 @@ public class CelebrityGame
 	 */
 	public boolean validateCelebrity(String name)
 	{
+		if (name.length()>3)
+			return true;
 		return false;
 	}
 
@@ -92,6 +103,8 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
+		if (clue.length()>9)
+			return true;
 		return false;
 	}
 
