@@ -165,7 +165,7 @@ public class StartPanel extends JPanel
 			validClue = controller.validateClue(clueText, "");
 		}
 
-		if (answerText.length() > 4)
+		if (answerText.length() >= 4)
 		{
 			validAnswer = controller.validateCelebrity(answerText);
 		}
