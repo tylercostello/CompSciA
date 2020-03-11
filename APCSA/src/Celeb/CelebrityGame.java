@@ -108,7 +108,15 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		celebGameList.add(new Celebrity(name,guess));
+		if (type=="Literature") {
+			celebGameList.add(new LiteratureCelebrity(name,guess));
+		}
+		else if (type=="Movie") {
+			celebGameList.add(new MovieCelebrity(name,guess));
+		}
+		else {
+			celebGameList.add(new Celebrity(name,guess));
+		}
 	}
 
 	/**
@@ -132,6 +140,8 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
+		
+		
 		if (clue.length()>9)
 			return true;
 		return false;

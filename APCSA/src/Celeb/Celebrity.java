@@ -1,4 +1,6 @@
 package Celeb;
+
+
 /**
  * Celebrity base class for the Celebrity game.
  * @author cody.henrichsen
@@ -8,6 +10,8 @@ public class Celebrity
 {
 	String ans;
 	String hint;
+	String type;
+	
 	/**
 	 * The clue to determine the celebrity
 	 */
@@ -21,6 +25,7 @@ public class Celebrity
 	 * @param answer
 	 * @param clue
 	 */
+
 	public Celebrity(String answer, String clue)
 	{
 		setClue(clue);
@@ -36,8 +41,13 @@ public class Celebrity
 	 * Supplies the clue for the celebrity
 	 * @return
 	 */
+	public String getType()
+	{
+		return type;
+	}
 	public String getClue()
 	{
+		
 		return hint;
 	}
 
@@ -54,9 +64,14 @@ public class Celebrity
 	 * Updates the clue to the provided String.
 	 * @param clue The new clue.
 	 */
+	public void setType(String type)
+	{
+		this.type=type;
+	}
 	public void setClue(String clue)
 	{
 		hint=clue;
+		//String hintArray[] = clue.split(",");
 	}
 
 	/**
