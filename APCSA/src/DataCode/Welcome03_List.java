@@ -27,12 +27,10 @@ public class Welcome03_List {
        double minLat=allstns.get(0).getLat();
        WeatherStation southStation=allstns.get(0);
       for (WeatherStation ws : allstns) {
-          
             if (ws.getLat()<minLat) {
             	southStation=ws;
             	minLat=ws.getLat();
             }
-          
        }
       System.out.println("  " + southStation.getId() + ": " + southStation.getLat());
    }
