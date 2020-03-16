@@ -7,7 +7,7 @@ public class Welcome02_Object {
       DataSource ds1 = DataSource.connect("http://weather.gov/xml/current_obs/" + id1 + ".xml"); 
       ds1.setCacheTimeout(15 * 60);  
       ds1.load();
-      //ds1.printUsageString();
+      ds1.printUsageString();
 
       //Observation ob1 = ds1.fetch("Observation", "weather", "temp_f", "wind_degrees");
       Observation ob1 = ds1.fetch(Observation.class, "weather", "temp_f", "wind_degrees"); 
