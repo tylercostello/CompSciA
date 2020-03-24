@@ -45,6 +45,12 @@ public class WordSearch
     			else if (checkDiagUpLeft(word,r,c)){
     				return true;
     			}
+    			else if (checkDiagDownLeft(word,r,c)){
+    				return true;
+    			}
+    			else if (checkDiagDownRight(word,r,c)){
+    				return true;
+    			}
     			
     		}
     	}
@@ -173,12 +179,39 @@ public class WordSearch
 
 	public boolean checkDiagDownLeft(String w, int r, int c)
    {
-		return false;
+		if (c+1-w.length()>=0&&r+w.length()<size){
+			//System.out.println(c+" "+r);
+			for (int i=0;i<w.length();i++){
+				if (!m[r+i][c-i].equals(""+w.charAt(i))){
+					//System.out.println(m[r][c-i]);
+					//System.out.println(w.charAt(i));
+					return false;
+				}
+				
+			}
+		}
+		else{
+			return false;
+		}
+		return true;
 	}
 
 	public boolean checkDiagDownRight(String w, int r, int c)
 	{
-		return false;
+		boolean found=true;
+		if (c+w.length()<size&&r+w.length()<size){
+			for (int i=0;i<w.length();i++){
+				if (!m[r+i][c+i].equals(""+w.charAt(i))){
+					
+					found=false;
+				}
+				
+			}
+		}
+		else{
+			found=false;
+		}
+		return found;
 	}
 
     public String toString()
