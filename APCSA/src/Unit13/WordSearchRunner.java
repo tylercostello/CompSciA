@@ -26,3 +26,27 @@ public class WordSearchRunner
     	  }
     }
 }
+/*
+APPLEXYP
+XLHJKEED
+EGGLLXXC
+GFPDGOGN
+MYNTAHUU
+PUQDGBTS
+BTHIGHMS
+ILKXLTHI
+
+APPLE was found in the matrix.
+AXE was found in the matrix.
+APEX was not found in the matrix.
+CAT was not found in the matrix.
+HEX was not found in the matrix.
+EGG was found in the matrix.
+HAT was found in the matrix.
+COMPUTER was not found in the matrix.
+GUM was not found in the matrix.
+THIS was not found in the matrix.
+TUG was found in the matrix.
+THIGH was found in the matrix.
+
+*/

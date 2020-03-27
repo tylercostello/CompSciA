@@ -24,6 +24,9 @@ public class NumberShifterRunner
 		//add test cases
 	}
 }
-
+/*
+179530525505506080105
+719530525505506080105
+ */
 
 
