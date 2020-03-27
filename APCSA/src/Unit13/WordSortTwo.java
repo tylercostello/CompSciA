@@ -38,9 +38,8 @@ public class WordSortTwo
 			nextWord="}";
 			wordSpot=0;
 		}
-		for (String words : sortedArray){
-			System.out.print(words+" ");
-		}
+		wordRay=sortedArray;
+		
 	}
 	public int compareWords(String one, String two){
 		int returnInt=0;
@@ -59,6 +58,9 @@ public class WordSortTwo
 	public String toString()
 	{
 		String output="";
+		for (String word : wordRay){
+			output+=word+" ";
+		}
 		return output+"\n\n";
 	}
 }
