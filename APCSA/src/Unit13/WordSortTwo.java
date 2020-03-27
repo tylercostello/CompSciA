@@ -12,10 +12,48 @@ public class WordSortTwo
 
 	public WordSortTwo(String sentence)
 	{
+		wordRay=sentence.split(" ");
 	}
 
 	public void sort()
 	{
+		
+		String[] sortedArray= new String[wordRay.length];
+		String nextWord=wordRay[0];
+		int wordSpot=0;
+		int openSpot=0;
+		for (int i=0;i<wordRay.length;i++){
+			for (int j=0;j<wordRay.length;j++){
+				if (compareWords(nextWord,wordRay[j])>0){
+					nextWord=wordRay[j];
+					wordSpot=j;
+				}
+				
+				
+			}
+			
+			wordRay[wordSpot]="}";
+			sortedArray[openSpot]=nextWord;
+			openSpot++;
+			nextWord="}";
+			wordSpot=0;
+		}
+		for (String words : sortedArray){
+			System.out.print(words+" ");
+		}
+	}
+	public int compareWords(String one, String two){
+		int returnInt=0;
+		int length = one.length()<two.length() ? one.length() : two.length();
+		for (int i=0;i<length;i++){
+			if (one.charAt(i)!=two.charAt(i)){
+				returnInt=one.charAt(i)<two.charAt(i) ? -1 : 1;
+				return returnInt;
+			}
+		}
+		
+		
+		return returnInt;
 	}
 
 	public String toString()
