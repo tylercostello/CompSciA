@@ -12,9 +12,11 @@ public class Lake {
 		this.name=name;
 	}
 	public String toString(){
+		
 		String returnString="";
 		for (Fish fish : lake){
-			returnString+=fish.toString()+" ";
+			
+			returnString+=fish.toString()+"\n";
 		}
 		returnString+="Lake Name "+name;
 		return returnString;
