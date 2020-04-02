@@ -18,7 +18,6 @@ public class Fish {
 		for(int i=8;i<stringSize.length();i++){
 			
 			if (stringSize.charAt(i)==';'){
-				//System.out.println(tempInt);
 				weightList.add(Integer.parseInt(tempInt));
 				tempInt="";
 				semiSpot=i;
@@ -28,7 +27,6 @@ public class Fish {
 				tempInt+=stringSize.charAt(i);
 			}
 			else if (stringSize.charAt(i)==','){
-				//System.out.println(tempInt);
 				weightList.add(Integer.parseInt(tempInt));
 				tempInt="";
 			}
@@ -36,7 +34,6 @@ public class Fish {
 		for(int i=semiSpot+9;i<stringSize.length();i++){
 			
 				if (stringSize.charAt(i)==';'){
-				//	System.out.println(tempInt);
 					lengthList.add(Integer.parseInt(tempInt));
 					tempInt="";
 					semiSpot=i;
@@ -46,7 +43,6 @@ public class Fish {
 					tempInt+=stringSize.charAt(i);
 				}
 				else if (stringSize.charAt(i)==','){
-				//	System.out.println(tempInt);
 					lengthList.add(Integer.parseInt(tempInt));
 					tempInt="";
 				}
@@ -65,11 +61,10 @@ public class Fish {
 			counter++;
 		}
 		this.sizes=new Size(weights,lengths);
-		//System.out.println(sizes.toString());
 	}
 	public String toString(){
 		String returnString="";
-		returnString=sizes.toString()+" Name: "+name;
+		returnString=sizes.toString()+" Fish Name: "+name;
 		return returnString;
 	}
 }
