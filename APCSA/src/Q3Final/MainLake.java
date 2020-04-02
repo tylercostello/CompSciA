@@ -40,10 +40,7 @@ public class MainLake {
 			
 		}
 		Lake lake = new Lake(fishList,lakeName);
-		
-		//Fish redFish = new Fish("Weights:1,2,3;Lengths:1,2,3;","Red Fish");
-		
-		//fishList.add(redFish);
+
 		
 		System.out.println(lake.toString());
 	}
