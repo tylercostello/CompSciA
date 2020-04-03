@@ -1,5 +1,7 @@
 package Q3Final;
 
+import java.util.ArrayList;
+
 public class Size {
 	int[] weights;
 	int[] lengths;
@@ -21,6 +23,39 @@ public class Size {
 		for (int i=0; i<lengths.length;i++){
 			this.lengths[i]=lengths[i];
 		}
+	}
+	
+	public static ArrayList<Fish> alphaSort(ArrayList<Fish> fishList){
+		ArrayList<Fish> tempList = new ArrayList<Fish>();
+		Fish fakeFish = new Fish("}");
+		Fish nextFish=fishList.get(0);
+		int nextFishSpot=0;
+		for (int i=0; i<fishList.size();i++){
+			for (int j=0;j<fishList.size();j++){
+				if (compareFunction(nextFish.getName(),fishList.get(j).getName())>0){
+					nextFish=fishList.get(j);
+					nextFishSpot=j;
+				}
+			}
+			tempList.add(nextFish);
+			fishList.set(nextFishSpot, fakeFish);
+			nextFish=fishList.get(0);
+			nextFishSpot=0;
+			
+		}
+		fishList=tempList;
+		
+		
+		
+		return fishList;
+	}
+	public static int compareFunction(String one, String two){
+		int returnInt=0;
+		one=one.toLowerCase();
+		two=two.toLowerCase();
+		returnInt=one.compareTo(two);
+		returnInt=returnInt<0 ? -1 : returnInt>0 ? 1 : 0;
+		return returnInt;
 	}
 	
 	public String toString(){

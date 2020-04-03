@@ -39,8 +39,15 @@ public class MainLake {
 			
 			
 		}
-		Lake lake = new Lake(fishList,lakeName);
+		
+		
+		fishList=Size.alphaSort(fishList);
 
+		
+		Lake lake = new Lake(fishList,lakeName);
+		
+		//call search function
+		
 		
 		System.out.println(lake.toString());
 	}

@@ -10,6 +10,10 @@ public class Fish {
 		this.name=name;
 		setSize(stringSize);
 	}
+	public Fish(String name){
+		this.name=name;
+		
+	}
 	public void setSize(String stringSize){
 		int semiSpot=0;
 		String tempInt="";
@@ -61,6 +65,9 @@ public class Fish {
 			counter++;
 		}
 		this.sizes=new Size(weights,lengths);
+	}
+	public String getName(){
+		return name;
 	}
 	public String toString(){
 		String returnString="";
