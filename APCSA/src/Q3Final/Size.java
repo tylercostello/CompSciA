@@ -58,6 +58,28 @@ public class Size {
 		return returnInt;
 	}
 	
+	public static Fish searchLake(String fishName, ArrayList<Fish> fishList){
+		int spot=0;
+		int min=0;
+		int max=fishList.size()-1;
+		while (min<=max){
+			spot=min+(max-min)/2-1;
+			//System.out.println(spot);
+			if (fishList.get(spot).getName().equals(fishName)){
+				return fishList.get(spot);
+			}
+			else if (compareFunction(fishName,fishList.get(spot).getName())>0){
+				max++;
+			}
+			else if (compareFunction(fishName,fishList.get(spot).getName())<0){
+				min++;
+			}
+		}
+		//Shouldn't happen
+		return null;
+		
+	}
+	
 	public String toString(){
 		String returnString="Weights ";
 		for (int i : weights){

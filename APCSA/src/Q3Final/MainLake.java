@@ -46,10 +46,14 @@ public class MainLake {
 		
 		Lake lake = new Lake(fishList,lakeName);
 		
-		//call search function
+		System.out.println(Size.searchLake("Blue Fish", lake.getList()).toString());
+		
+
+		//print largest fish
+		//print average fish size
 		
 		
-		System.out.println(lake.toString());
+		//System.out.println(lake.toString());
 	}
 
 }

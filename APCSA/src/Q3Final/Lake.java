@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 public class Lake {
 	
-	ArrayList<Fish> lake;
+	static ArrayList<Fish> lake;
 	String name;
 	
 	public Lake(ArrayList<Fish> lake, String name){
-		this.lake=new ArrayList<Fish>(lake);
+		Lake.lake=new ArrayList<Fish>(lake);
 		this.name=name;
+	}
+	public static ArrayList<Fish> getList(){
+		return lake;
 	}
 	public String toString(){
 		
