@@ -40,20 +40,27 @@ public class MainLake {
 			
 		}
 		
-		
+		//Sorting
 		fishList=Size.alphaSort(fishList);
 
 		
 		Lake lake = new Lake(fishList,lakeName);
 		
+		//Searching
 		System.out.println(Size.searchLake("Blue Fish", lake.getList()).toString());
+		Fish myFish=Size.searchLake("Blue Fish", lake.getList());
+		System.out.println(myFish.getSize().largestWeight());
+		System.out.println(myFish.getSize().averageWeight());
+		System.out.println(myFish.getSize().averageLength());
 		
+		//other methods
+		for (Fish thisFish : lake.getList()){
+			System.out.println(thisFish.toString());
+			System.out.println(thisFish.getSize().largestWeight());
+			System.out.println(thisFish.getSize().averageWeight());
+			System.out.println(thisFish.getSize().averageLength());
+		}
 
-		//print largest fish
-		//print average fish size
-		
-		
-		//System.out.println(lake.toString());
 	}
 
 }

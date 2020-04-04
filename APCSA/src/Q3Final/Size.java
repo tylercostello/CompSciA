@@ -80,6 +80,32 @@ public class Size {
 		
 	}
 	
+	public float averageLength(){
+		int sum=0;
+		for (int i : lengths){
+			sum+=i;
+		}
+		return (float)sum/lengths.length;
+	}
+	
+	public float averageWeight(){
+		int sum=0;
+		for (int i : weights){
+			sum+=i;
+		}
+		return (float)sum/weights.length;
+	}
+	
+	public int largestWeight(){
+		int largest=0;
+		for (int i : weights){
+			largest=i>largest ? i : largest;
+		}
+		return largest;
+	}
+	
+	
+	
 	public String toString(){
 		String returnString="Weights ";
 		for (int i : weights){

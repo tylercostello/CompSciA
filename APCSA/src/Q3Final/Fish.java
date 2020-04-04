@@ -69,6 +69,9 @@ public class Fish {
 	public String getName(){
 		return name;
 	}
+	public Size getSize(){
+		return sizes;
+	}
 	public String toString(){
 		String returnString="";
 		returnString=sizes.toString()+" Fish Name: "+name;
