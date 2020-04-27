@@ -56,23 +56,9 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		/*int sum = 0;
-		for (int i : selectedCards) {
-			sum += this.cardAt(i).pointValue();
-		}
-		if (selectedCards.size() == 2 && sum == 11) {
 
+		if (this.containsPairSum11(selectedCards) || this.containsJQK(selectedCards)) {
 			return true;
-
-		}else if (sum == 0 && selectedCards.size() == 3) {
-			if (this.cardAt(selectedCards.get(0)).rank() != this.cardAt(selectedCards.get(1)).rank()
-					&& this.cardAt(selectedCards.get(1)).rank() != this.cardAt(selectedCards.get(2)).rank()
-					&& this.cardAt(selectedCards.get(0)).rank() != this.cardAt(selectedCards.get(2)).rank()) {
-				return true;
-			}
-		}*/
-		if (this.containsPairSum11(selectedCards) || this.containsJQK(selectedCards)){
-		 return true;	
 		}
 
 		return false;
@@ -108,7 +94,7 @@ public class ElevensBoard extends Board {
 		for (int i = 0; i < this.cardIndexes().size(); i++) {
 			for (int j = 0; j < this.cardIndexes().size(); j++) {
 				for (int k = 0; k < this.cardIndexes().size(); k++) {
-					if (i != j && j!= k && i!=k){
+					if (i != j && j != k && i != k) {
 						selectedCards.set(0, i);
 						selectedCards.set(1, j);
 						selectedCards.set(2, k);
