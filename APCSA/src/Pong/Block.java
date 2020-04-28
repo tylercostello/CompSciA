@@ -2,11 +2,11 @@
 //www.apluscompsci.com
 //Name -
 package Pong;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Block implements Locatable
-{
+public class Block implements Locatable {
 	private int xPos;
 	private int yPos;
 	private int width;
@@ -14,59 +14,96 @@ public class Block implements Locatable
 
 	private Color color;
 
-	public Block()
-	{
-
+	public Block() {
 
 	}
 
-	//add other Block constructors - x , y , width, height, color
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-   //add the other set methods
-   
+	public Block(int xPos, int yPos, int width, int height) {
+		this.xPos = xPos;
+		this.yPos = yPos;
+		this.width = width;
+		this.height = height;
 
-   public void setColor(Color col)
-   {
+	}
 
+	public Block(int xPos, int yPos, int width, int height, Color color) {
+		this.xPos = xPos;
+		this.yPos = yPos;
+		this.width = width;
+		this.height = height;
+		this.color = color;
+		// setColor(color);
 
-   }
+	}
 
-   public void draw(Graphics window)
-   {
-   	//uncomment after you write the set and get methods
-      //window.setColor(color);
-      //window.fillRect(getX(), getY(), getWidth(), getHeight());
-   }
+	// add other Block constructors - x , y , width, height, color
+	// add a toString() method - x , y , width, height, color
 
-   public void draw(Graphics window, Color col)
-   {
+	public void setPos(int x, int y) {
+		// TODO Auto-generated method stub
+		this.xPos = x;
+		this.yPos = y;
+	}
 
+	public void setX(int x) {
+		// TODO Auto-generated method stub
+		this.xPos = x;
+	}
 
-   }
-   
-	public boolean equals(Object obj)
-	{
+	public void setY(int y) {
+		// TODO Auto-generated method stub
+		this.yPos = y;
+	}
 
+	// add the other set methods
+	public int getX() {
+		return xPos;
+	}
 
+	public int getY() {
+		return yPos;
+	}
 
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setColor(Color col) {
+		this.color = col;
+
+	}
+
+	public void draw(Graphics window) {
+
+		window.setColor(color);
+		window.fillRect(getX(), getY(), getWidth(), getHeight());
+
+	}
+
+	public void draw(Graphics window, Color col) {
+		this.setColor(col);
+		window.setColor(color);
+		window.fillRect(getX(), getY(), getWidth(), getHeight());
+
+	}
+
+	public boolean equals(Object obj) {
+
+		if (this.toString().equals(obj.toString())) {
+			return true;
+		}
 
 		return false;
-	}   
+	}
 
-   //add the other get methods
-    
+	// add the other get methods
 
-   //add a toString() method  - x , y , width, height, color
+	public String toString() {
+		return (xPos + " " + yPos + " " + width + " " + height + " " + color);
+	}
+
 }
