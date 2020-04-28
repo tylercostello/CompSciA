@@ -15,7 +15,21 @@ public class Block implements Locatable {
 	private Color color;
 
 	public Block() {
-
+		this.xPos = 100;
+		this.yPos = 150;
+		this.width = 10;
+		this.height = 10;
+	}
+	public Block(int xPos, int yPos) {
+		this.setPos(xPos, yPos);
+		this.width = 10;
+		this.height = 10;
+	}
+	public Block(int xPos, int yPos, Color color) {
+		this.setPos(xPos, yPos);
+		this.setColor(color);
+		this.width = 10;
+		this.height = 10;
 	}
 
 	public Block(int xPos, int yPos, int width, int height) {
@@ -38,7 +52,7 @@ public class Block implements Locatable {
 
 	// add other Block constructors - x , y , width, height, color
 	// add a toString() method - x , y , width, height, color
-
+	@Override
 	public void setPos(int x, int y) {
 		// TODO Auto-generated method stub
 		this.xPos = x;
