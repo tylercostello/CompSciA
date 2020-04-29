@@ -26,7 +26,17 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	{
 		//set up all variables related to the game
 
-
+		ball = new Ball(100,100,10,10,Color.RED,3,3);
+		
+		
+		//instantiate a left Paddle
+		leftPaddle = new Paddle(10,300,20,60,Color.BLUE,5);
+		
+		
+		
+		//instantiate a right Paddle
+		
+		rightPaddle = new Paddle(750,300,20,60,Color.ORANGE,5);
 
 
 		keys = new boolean[4];
@@ -47,6 +57,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
    {
 		//set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D)window;
+		
 
 		//take a snap shop of the current screen and same it as an image
 		//that is the exact same width and height as the current screen
@@ -73,22 +84,54 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		
 		//see if the ball hits the top or bottom wall 
 
-
+		if(!(ball.getY()>=10 && ball.getY()<=450))
+		{
+			ball.setYSpeed(-ball.getYSpeed());
+		}
 
 
 		//see if the ball hits the left paddle
 		
-		
+		/*if( (ball’s x &lt;= left paddle’s x +left paddle’s width+abs(ball x Spd)
+		&amp;&amp;
+		( balls’s y &gt;= left paddle’s y &amp;&amp;
+		balls’s y &lt;= left paddle’s y + left paddle’s height ||
+		ball’s y + ball’s height &gt;= left paddle’s y &amp;&amp;
+		ball’s y + ball’s height &lt; left paddle’s y + paddle’s height ) )
+		{
+		if( balls’s x &lt;= left paddle’s x +left paddle’s width – abs(ball x Spd )
+		set Y speed to negative of current speed
+		else
+		set X speed to negative of current speed
+		}*/
 		
 		//see if the ball hits the right paddle
 		
 		
-		
+		if(keys[0] == true)
+		{
+			//move left paddle up and draw it on the window
+			leftPaddle.moveUpAndDraw(graphToBack);
+		}
+		if(keys[1] == true)
+		{
+			//move left paddle down and draw it on the window
+			leftPaddle.moveDownAndDraw(graphToBack);
+
+		}
+		if(keys[2] == true)
+		{
+			rightPaddle.moveUpAndDraw(graphToBack);
+		}
+		if(keys[3] == true)
+		{
+			rightPaddle.moveDownAndDraw(graphToBack);
+		}
 
 
 		//see if the paddles need to be moved
 
-
+		
 
 
 

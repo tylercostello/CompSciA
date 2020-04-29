@@ -25,10 +25,7 @@ public class Paddle extends Block {
 		speed = 5;
 	}
 
-	public Paddle(int xPos, int yPos, int width) {
-		super(xPos, yPos, width, 50);
-		speed = 5;
-	}
+	
 
 	public Paddle(int xPos, int yPos, int width, int height) {
 		super(xPos, yPos, width, height);
