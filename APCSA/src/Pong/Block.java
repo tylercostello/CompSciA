@@ -12,7 +12,7 @@ public class Block implements Locatable {
 	private int width;
 	private int height;
 
-	private Color color;
+	private Color color=Color.black;
 
 	public Block() {
 		this.xPos = 100;
