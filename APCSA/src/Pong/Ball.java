@@ -40,19 +40,67 @@ public class Ball extends Block implements Collidable
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
 	}
+	
 
 	//add the other Ball constructors
 	public boolean didCollideLeft(Object obj){
-		return true;
+		//System.out.println(obj.getClass().toString());
+		if (obj.getClass().toString().equals("class Pong.Paddle")){
+			//paddle code
+			Paddle leftPaddle = (Paddle) obj;
+			if (this.getX() <= leftPaddle.getX() + leftPaddle.getWidth() + Math.abs(this.getXSpeed())
+			&& (this.getY() >= leftPaddle.getY() && this.getY() < leftPaddle.getY() + leftPaddle.getHeight()
+					|| this.getY() + this.getHeight() >= leftPaddle.getY()
+							&& this.getY() + this.getHeight() < leftPaddle.getY() + leftPaddle.getHeight())) {
+				return true;
+			}
+		}
+		else if (obj.getClass().toString().equals("class Pong.Wall")){
+			//wall code
+			Wall tempWall = (Wall) obj;
+			if (this.getX() <= tempWall.getX()) {
+				return true;
+			}
+		}
+		return false;
 	}
 	public boolean didCollideRight(Object obj){
-		return true;
+		if (obj.getClass().toString().equals("class Pong.Paddle")){
+			//paddle code
+			Paddle rightPaddle = (Paddle) obj;
+			if (this.getX() - this.getWidth() >= rightPaddle.getX() - rightPaddle.getWidth() - Math.abs(this.getXSpeed())
+					&& (this.getY() >= rightPaddle.getY() && this.getY() < rightPaddle.getY() + rightPaddle.getHeight()
+							|| this.getY() + this.getHeight() >= rightPaddle.getY()
+									&& this.getY() + this.getHeight() < rightPaddle.getY() + rightPaddle.getHeight())) {
+				return true;
+			}
+		}
+		else if (obj.getClass().toString().equals("class Pong.Wall")){
+			//wall code
+			Wall tempWall = (Wall) obj;
+			if (this.getX() >= tempWall.getX()) {
+				return true;
+			}
+		}
+		return false;
 	}
 	public boolean didCollideTop(Object obj){
-		return true;
+		Wall tempWall = (Wall) obj;
+		if (this.getY() <= tempWall.getY()) {
+			//System.out.println(this.getY());
+			//System.out.println(tempBlock.getY());
+			return true;
+		}
+		return false;
 	}
 	public boolean didCollideBottom(Object obj){
-		return true;
+		Wall tempWall = (Wall) obj;
+		if (this.getY() >= tempWall.getY()) {
+			//System.out.println(this.getY());
+			//System.out.println(tempBlock.getY());
+			return true;
+		}
+		return false;
 	}
 	
 	

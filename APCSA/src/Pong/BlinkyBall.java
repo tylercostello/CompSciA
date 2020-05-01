@@ -63,6 +63,7 @@ class BlinkyBall extends Ball
 		  this.setColor(randomColor());
 	      setX(getX()+getXSpeed());
 	      setY(getY()+getYSpeed());
+	     // System.out.println(getYSpeed());
 	      this.draw(window);
 
 
