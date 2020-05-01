@@ -20,11 +20,14 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
+	private String scoreString="Left 0 Right 0";
+	private int leftScore=0;
+	private  int rightScore=0;
 
 	public Pong() {
 		// set up all variables related to the game
-
-		ball = new Ball(100, 200, 10, 10, Color.RED, 1, 1);
+		
+		ball = new Ball(400, 200, 10, 10, Color.RED, 1, 1);
 
 		// instantiate a left Paddle
 		leftPaddle = new Paddle(10, 300, 20, 60, Color.BLUE, 3);
@@ -43,13 +46,22 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 	}
 
 	public void update(Graphics window) {
+		window.drawString(scoreString, 400, 100);
 		paint(window);
+		window.drawString(scoreString, 400, 100);
+		
+			
+		
+		
+		
 	}
 
 	public void paint(Graphics window) {
 		// set up the double buffering to make the game animation nice and
 		// smooth
+		
 		Graphics2D twoDGraph = (Graphics2D) window;
+		
 
 		// take a snap shop of the current screen and same it as an image
 		// that is the exact same width and height as the current screen
@@ -65,13 +77,26 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		rightPaddle.draw(graphToBack);
 
 		// see if ball hits left wall or right wall
-		if (!(ball.getX() >= 10 && ball.getX() <= 800)) {
-
+		if (!(ball.getX() >= -20 && ball.getX() <= 800)) {
+			//ball.setXSpeed(0);
+			ball.setYSpeed(0);
+			if (ball.getX()>800){
+				leftScore++;
+			}
+			else{
+				rightScore++;
+			}
 			Ball whiteBall = new Ball(ball.getX(), ball.getY(), Color.WHITE, 0, 0);
 			whiteBall.draw(window);
 
-			ball.setX(100);
+			ball.setX(400);
 			ball.setY(200);
+			
+			ball.setYSpeed(1);
+			
+			scoreString="Left Score "+leftScore+" Right Score "+rightScore;
+			System.out.println("here2");
+			
 
 		}
 
@@ -118,6 +143,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 
 		if (keys[1] == true) {
 			// move left paddle up and draw it on the window
+			
 			leftPaddle.moveUpAndDraw(graphToBack);
 		}
 		if (keys[0] == true) {
@@ -133,7 +159,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		}
 
 		// see if the paddles need to be moved
-
+		
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
