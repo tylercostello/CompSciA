@@ -5,7 +5,7 @@ package Pong;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Ball extends Block
+public class Ball extends Block implements Collidable
 {
 	private int xSpeed;
 	private int ySpeed;
@@ -42,6 +42,19 @@ public class Ball extends Block
 	}
 
 	//add the other Ball constructors
+	public boolean didCollideLeft(Object obj){
+		return true;
+	}
+	public boolean didCollideRight(Object obj){
+		return true;
+	}
+	public boolean didCollideTop(Object obj){
+		return true;
+	}
+	public boolean didCollideBottom(Object obj){
+		return true;
+	}
+	
 	
 	public void setXSpeed(int xSpeed){
 		this.xSpeed=xSpeed;

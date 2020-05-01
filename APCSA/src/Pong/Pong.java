@@ -76,6 +76,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
 
+		
 		// see if ball hits left wall or right wall
 		if (!(ball.getX() >= -20 && ball.getX() <= 800)) {
 			//ball.setXSpeed(0);
@@ -138,7 +139,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 
 			}
 		}
-
+		
 		// see if the ball hits the right paddle
 
 		if (keys[1] == true) {
