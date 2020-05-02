@@ -51,7 +51,7 @@ class Invisiball extends Ball {
 		if (randInt>980){
 			setColor(Color.RED);
 		}
-		System.out.println(randInt);
+		//System.out.println(randInt);
 		
 		setX(getX() + getXSpeed());
 		setY(getY() + getYSpeed());

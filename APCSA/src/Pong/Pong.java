@@ -37,11 +37,13 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		rightWall = new Wall(750, 0, 20, 900);
 		topWall = new Wall(0, -5, 900, 20);
 		bottomWall = new Wall(0, 550, 900, 20);
-		// ball = new Ball(400, 200, 10, 10, Color.RED, 1, 1);
+		
+		 //ball = new Ball(400, 200, 10, 10, Color.RED, 1, 1);
 		// ball = new BlinkyBall(400, 200, 10, 10, Color.RED, 1, 1);
 		//ball = new SpeedUpBall(400, 200, 10, 10, Color.RED, 1, 1);
 		ball = new Invisiball(400, 200, 10, 10, Color.RED, 1, 1);
 		// instantiate a left Paddle
+		
 		leftPaddle = new Paddle(10, 300, 20, 60, Color.BLUE, 3);
 
 		// instantiate a right Paddle
@@ -58,11 +60,11 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 	}
 
 	public void update(Graphics window) {
-		window.drawString(scoreString, 400, 100);
+		window.drawString(scoreString, 375, 100);
 		paint(window);
 		collisionUpdater(window);
 		
-		window.drawString(scoreString, 400, 100);
+		window.drawString(scoreString, 375, 100);
 
 	}
 
@@ -78,7 +80,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		else if (ball.didCollideLeft(leftWall)) {
 			ball.setYSpeed(0);
 			ball.setXSpeed(0);
-			ball.setColor(Color.WHITE);
+			//ball.setColor(Color.WHITE);
 			ball.draw(window);
 			paint(window);
 			
@@ -101,7 +103,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 
 			scoreString = "Left Score " + leftScore + " Right Score " + rightScore;
 			//whiteBall.draw(window);
-			ball.setColor(Color.WHITE);
+			///ball.setColor(Color.WHITE);
 			needsErasing=true;
 		}
 
@@ -109,7 +111,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 			
 			ball.setYSpeed(0);
 			ball.setXSpeed(0);
-			ball.setColor(Color.WHITE);
+			//ball.setColor(Color.WHITE);
 			ball.draw(window);
 			paint(window);
 			
@@ -132,7 +134,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 
 			scoreString = "Left Score " + leftScore + " Right Score " + rightScore;
 			//whiteBall.draw(window);
-			ball.setColor(Color.WHITE);
+			//ball.setColor(Color.WHITE);
 			needsErasing=true;
 			
 		}
@@ -184,7 +186,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		if (needsErasing){
 		Block tempBlock = new Block(0,0,1000,1000,Color.WHITE);
 		tempBlock.draw(graphToBack);
-		needsErasing=false;
+		//needsErasing=false;
 		}
 		ball.moveAndDraw(graphToBack);
 		leftWall.draw(graphToBack);
