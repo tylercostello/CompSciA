@@ -82,7 +82,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 			paint(window);
 			
 			//ball.moveAndDraw(window);
-			leftScore++;
+			rightScore++;
 		//	Ball whiteBall = new Ball(ball.getX(), ball.getY(), 100, 100, Color.WHITE, 1, 1);
 			
 	//		whiteBall.draw(window);
@@ -183,6 +183,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		if (needsErasing){
 		Block tempBlock = new Block(0,0,1000,1000,Color.WHITE);
 		tempBlock.draw(graphToBack);
+		needsErasing=false;
 		}
 		ball.moveAndDraw(graphToBack);
 		leftWall.draw(graphToBack);

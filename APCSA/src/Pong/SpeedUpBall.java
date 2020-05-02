@@ -53,12 +53,12 @@ class SpeedUpBall extends BlinkyBall {
 
 	@Override
 	public void moveAndDraw(Graphics window) {
-//		if (prevXSpeed == -this.getXSpeed() || prevYSpeed == -this.getYSpeed()) {
-//			// collided
-//			System.out.println("Collided");
-//			this.setXSpeed(this.getXSpeed() + this.getXSpeed()/Math.abs(this.getXSpeed()) );
-//			this.setYSpeed(this.getYSpeed() + this.getYSpeed()/Math.abs(this.getYSpeed()));
-//		}
+		if (prevXSpeed == -this.getXSpeed() || prevYSpeed == -this.getYSpeed()) {
+			// collided
+			//System.out.println("Collided");
+			this.setXSpeed(this.getXSpeed() + this.getXSpeed()/Math.abs(this.getXSpeed()) );
+			this.setYSpeed(this.getYSpeed() + this.getYSpeed()/Math.abs(this.getYSpeed()));
+		}
 
 		super.moveAndDraw(window);
 		prevXSpeed = this.getXSpeed();
