@@ -39,7 +39,8 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		bottomWall = new Wall(0, 550, 900, 20);
 		// ball = new Ball(400, 200, 10, 10, Color.RED, 1, 1);
 		// ball = new BlinkyBall(400, 200, 10, 10, Color.RED, 1, 1);
-		ball = new SpeedUpBall(400, 200, 10, 10, Color.RED, 1, 1);
+		//ball = new SpeedUpBall(400, 200, 10, 10, Color.RED, 1, 1);
+		ball = new Invisiball(400, 200, 10, 10, Color.RED, 1, 1);
 		// instantiate a left Paddle
 		leftPaddle = new Paddle(10, 300, 20, 60, Color.BLUE, 3);
 
