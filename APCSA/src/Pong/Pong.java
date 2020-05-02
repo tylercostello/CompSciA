@@ -27,6 +27,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 	private String scoreString = "Left 0 Right 0";
 	private int leftScore = 0;
 	private int rightScore = 0;
+	private boolean needsErasing;
 
 	public Pong() {
 		// set up all variables related to the game
@@ -58,6 +59,8 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 	public void update(Graphics window) {
 		window.drawString(scoreString, 400, 100);
 		paint(window);
+		collisionUpdater(window);
+		
 		window.drawString(scoreString, 400, 100);
 
 	}
@@ -74,36 +77,63 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		else if (ball.didCollideLeft(leftWall)) {
 			ball.setYSpeed(0);
 			ball.setXSpeed(0);
-			rightScore++;
-			Ball whiteBall = new Ball(100, 100, 100, 100, Color.RED, 0, 0);
-			whiteBall.draw(window);
-
+			ball.setColor(Color.WHITE);
+			ball.draw(window);
+			paint(window);
+			
+			//ball.moveAndDraw(window);
+			leftScore++;
+		//	Ball whiteBall = new Ball(ball.getX(), ball.getY(), 100, 100, Color.WHITE, 1, 1);
+			
+	//		whiteBall.draw(window);
+			
 			ball.setX(400);
 			ball.setY(200);
 			
-			//ball.setXSpeed(ball.getXSpeed()/Math.abs(ball.getXSpeed()));
+			
+			
+			
+			
 			ball.setXSpeed(-1);
+			//ball.setXSpeed(ball.getXSpeed()/Math.abs(ball.getXSpeed()));
 			ball.setYSpeed(1);
 
 			scoreString = "Left Score " + leftScore + " Right Score " + rightScore;
+			//whiteBall.draw(window);
+			ball.setColor(Color.WHITE);
+			needsErasing=true;
 		}
 
 		else if (ball.didCollideRight(rightWall)) {
 			
 			ball.setYSpeed(0);
 			ball.setXSpeed(0);
-			leftScore++;
-			Ball whiteBall = new Ball(100, 100, 100, 100, Color.RED, 1, 1);
+			ball.setColor(Color.WHITE);
+			ball.draw(window);
+			paint(window);
 			
-			whiteBall.draw(window);
-
+			//ball.moveAndDraw(window);
+			leftScore++;
+		//	Ball whiteBall = new Ball(ball.getX(), ball.getY(), 100, 100, Color.WHITE, 1, 1);
+			
+	//		whiteBall.draw(window);
+			
 			ball.setX(400);
 			ball.setY(200);
+			
+			
+			
+			
+			
 			ball.setXSpeed(1);
 			//ball.setXSpeed(ball.getXSpeed()/Math.abs(ball.getXSpeed()));
 			ball.setYSpeed(1);
 
 			scoreString = "Left Score " + leftScore + " Right Score " + rightScore;
+			//whiteBall.draw(window);
+			ball.setColor(Color.WHITE);
+			needsErasing=true;
+			
 		}
 
 		else if (ball.didCollideLeft(leftPaddle)) {
@@ -135,11 +165,12 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 	}
 
 	public void paint(Graphics window) {
-		collisionUpdater(window);
+		//collisionUpdater(window);
 		// set up the double buffering to make the game animation nice and
 		// smooth
 
 		Graphics2D twoDGraph = (Graphics2D) window;
+		
 
 		// take a snap shop of the current screen and same it as an image
 		// that is the exact same width and height as the current screen
@@ -149,7 +180,10 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		// create a graphics reference to the back ground image
 		// we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
-
+		if (needsErasing){
+		Block tempBlock = new Block(0,0,1000,1000,Color.WHITE);
+		tempBlock.draw(graphToBack);
+		}
 		ball.moveAndDraw(graphToBack);
 		leftWall.draw(graphToBack);
 		rightWall.draw(graphToBack);

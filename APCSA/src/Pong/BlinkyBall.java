@@ -52,11 +52,14 @@ class BlinkyBall extends Ball {
 
 		Ball whiteBall = new Ball(getX(), getY(), Color.WHITE, 0, 0);
 		whiteBall.draw(window);
+		
 		this.setColor(randomColor());
 		setX(getX() + getXSpeed());
 		setY(getY() + getYSpeed());
+		
 		// System.out.println(getYSpeed());
 		this.draw(window);
+		
 
 	}
 }
