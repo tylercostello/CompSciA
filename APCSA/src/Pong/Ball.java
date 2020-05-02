@@ -59,6 +59,7 @@ public class Ball extends Block implements Collidable
 			//wall code
 			Wall tempWall = (Wall) obj;
 			if (this.getX() <= tempWall.getX()) {
+			//if (this.getX()-this.getWidth() <= tempWall.getX()) {
 				return true;
 			}
 		}
@@ -78,7 +79,8 @@ public class Ball extends Block implements Collidable
 		else if (obj.getClass().toString().equals("class Pong.Wall")){
 			//wall code
 			Wall tempWall = (Wall) obj;
-			if (this.getX() >= tempWall.getX()) {
+			if (this.getX()>= tempWall.getX()) {
+			//if (this.getX() + this.getWidth() >= tempWall.getX()) {
 				return true;
 			}
 		}

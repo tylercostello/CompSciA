@@ -2,63 +2,67 @@
 //www.apluscompsci.com
 //Name -
 package Pong;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-class SpeedUpBall extends Ball
-{
+class SpeedUpBall extends BlinkyBall {
 
-   //instance variables
+	private int prevXSpeed;
+	private int prevYSpeed;
+	// instance variables
 
-   public SpeedUpBall()
-   {
+	public SpeedUpBall() {
+		super(400, 200, 10, 10, Color.RED, 1, 1);
 
+	}
 
-   }
+	public SpeedUpBall(int x, int y) {
+		super(x, y, 10, 10, Color.RED, 1, 1);
 
-   public SpeedUpBall(int x, int y)
-   {
+	}
 
+	public SpeedUpBall(int x, int y, int xSpd, int ySpd) {
+		super(x, y, 10, 10, Color.RED, xSpd, ySpd);
 
-   }
+	}
 
+	public SpeedUpBall(int x, int y, int wid, int ht, int xSpd, int ySpd) {
+		super(x, y, wid, ht, Color.RED, xSpd, ySpd);
 
-   public SpeedUpBall(int x, int y, int xSpd, int ySpd)
-   {
+	}
 
+	public SpeedUpBall(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd) {
 
-   }
+		super(x, y, wid, ht, col, xSpd, ySpd);
 
-   public SpeedUpBall(int x, int y, int wid, int ht, int xSpd, int ySpd)
-   {
+	}
 
+	public void setXSpeed(int xSpd) {
 
-   }
+		super.setXSpeed(xSpd);
 
+	}
 
-   public SpeedUpBall(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd)
-   {
+	public void setYSpeed(int ySpd) {
 
+		super.setYSpeed(ySpd);
 
+	}
 
+	@Override
+	public void moveAndDraw(Graphics window) {
+//		if (prevXSpeed == -this.getXSpeed() || prevYSpeed == -this.getYSpeed()) {
+//			// collided
+//			System.out.println("Collided");
+//			this.setXSpeed(this.getXSpeed() + this.getXSpeed()/Math.abs(this.getXSpeed()) );
+//			this.setYSpeed(this.getYSpeed() + this.getYSpeed()/Math.abs(this.getYSpeed()));
+//		}
 
-   }
+		super.moveAndDraw(window);
+		prevXSpeed = this.getXSpeed();
+		prevYSpeed = this.getYSpeed();
 
-   public void setXSpeed( int xSpd )
-   {
-
-
-
-
-   }
-
-   public void setYSpeed( int ySpd )
-   {
-
-
-
-
-   }
+	}
 }
-
