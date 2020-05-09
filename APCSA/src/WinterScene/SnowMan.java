@@ -27,7 +27,7 @@ public class SnowMan extends AbstractShape
 
    public void moveAndDraw(Graphics window)
    {
-	  //this.setXPos(this.getXPos()+this.getXSpeed());
+	  
       draw(window);   
    }
 }
