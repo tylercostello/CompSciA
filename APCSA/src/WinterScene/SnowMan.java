@@ -18,7 +18,7 @@ public class SnowMan extends AbstractShape
    public void draw(Graphics window)
    {
       //add code here to make a snowman 	
-	   
+	   window.setColor(Color.WHITE);
 	   //window.drawOval(this.getXPos(),this.getYPos(),this.getWidth(),this.getHeight());
 	   window.fillOval(this.getXPos(),this.getYPos(),this.getWidth(),this.getHeight());
 	   window.fillOval(this.getXPos()+19,this.getYPos()-30,this.getWidth()-40,this.getHeight()-40);

@@ -17,12 +17,13 @@ public class WinterScenePanel extends JPanel implements Runnable
 {
 	private List<AbstractShape> shapes;
 	private AbstractShape sMan;
-	private AbstractShape sFlakeTest;
-	
+	//private AbstractShape sFlakeTest;
+	private AbstractShape tree;
 
 	public WinterScenePanel()
 	{
 		setVisible(true);
+		tree = new Tree(100,400,40,100);
 		//refer shapes to a new ArrayList of AbstractShape
 		shapes = new ArrayList<AbstractShape>();
 		//populate the list with 50 unique snowflakes
@@ -55,6 +56,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 		window.drawRect(20,20,getWidth()-40,getHeight()-40);
 		window.setFont(new Font("TAHOMA",Font.BOLD,18));
 		window.drawString("MAKE A WINTER SCENE!",40,40);
+		tree.draw(window);
 		//sFlakeTest.draw(window);
 		for (AbstractShape thisFlake : shapes){
 			thisFlake.moveAndDraw(window);
