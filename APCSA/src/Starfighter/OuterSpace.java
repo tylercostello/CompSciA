@@ -34,8 +34,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		setBackground(Color.black);
 
 		keys = new boolean[5];
-		ship = new Ship(0,0,100,100,10);
-		
+		ship = new Ship(0,0,100,100,5);
+		alienOne = new Alien(50,50,100,100,10);
+		alienTwo = new Alien(200,50,100,100,10);
 		//instantiate other instance variables
 		//Ship, Alien
 
@@ -94,6 +95,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		twoDGraph.drawImage(back, null, 0, 0);
 		ship.draw(window);
+		alienOne.draw(window);
+		alienTwo.draw(window);
 
 	}
 

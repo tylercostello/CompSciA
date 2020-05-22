@@ -21,11 +21,13 @@ public class Alien extends MovingThing
 
 	public Alien(int x, int y)
 	{
+		this(x,y,30,30,0);
 		//add code here
 	}
 
 	public Alien(int x, int y, int s)
 	{
+		this(x,y,30,30,s);
 		//add code here
 	}
 
@@ -35,28 +37,45 @@ public class Alien extends MovingThing
 		speed=s;
 		try
 		{
-			URL url = getClass().getResource("/images/alien.jpg");
-			image = ImageIO.read(url);
+			File file = new File("C:/Users/tyc64/Desktop/CompSciGithub/CompSciA/APCSA/src/Starfighter/alien.jpg");
+			image = ImageIO.read(file);
 		}
 		catch(Exception e)
 		{
+			e.printStackTrace(); 
+			System.out.println("There was a problem");
 			//feel free to do something here
 		}
 	}
 
 	public void setSpeed(int s)
 	{
-	   //add code
+		speed=s;
+		//add more code
 	}
 
 	public int getSpeed()
 	{
-	   return 0;
+	   return speed;
 	}
 
-   public void move(String direction)
+	public void move(String direction)
 	{
-	   //add code here
+		
+		if (direction.equals("LEFT")){
+			setX(getX()-getSpeed());
+		}
+		else if (direction.equals("RIGHT")){
+			setX(getX()+getSpeed());
+		}
+		else if (direction.equals("UP")){
+			setY(getY()-getSpeed());
+		}
+		else{
+			setY(getY()+getSpeed());
+		}
+		
+		//add code here
 	}
 
 	public void draw( Graphics window )
@@ -66,6 +85,6 @@ public class Alien extends MovingThing
 
 	public String toString()
 	{
-		return "";
+		return super.toString() + getSpeed();
 	}
 }
