@@ -3,6 +3,7 @@
 //Name -
 package Starfighter;
 import java.io.File;
+import java.net.URI;
 import java.net.URL;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -21,42 +22,59 @@ public class Ship extends MovingThing
 
 	public Ship(int x, int y)
 	{
-	   //add code here
+	   this(x,y,10,10,10);//add code here
 	}
 
 	public Ship(int x, int y, int s)
 	{
-	   //add code here
+	   this(x,y,10,10,s);//add code here
 	}
 
 	public Ship(int x, int y, int w, int h, int s)
 	{
 		super(x, y, w, h);
 		speed=s;
+		
 		try
 		{
-			URL url = getClass().getResource("/images/ship.jpg");
-			image = ImageIO.read(url);
+			File file = new File("C:/Users/tyc64/Desktop/CompSciGithub/CompSciA/APCSA/src/Starfighter/ship.jpg");
+			image = ImageIO.read(file);
 		}
 		catch(Exception e)
 		{
-			//feel free to do something here
+			e.printStackTrace(); 
+			System.out.println("There was a problem");//feel free to do something here
 		}
 	}
 
 
 	public void setSpeed(int s)
 	{
-	   //add more code
+		speed=s;
+		//add more code
 	}
 
 	public int getSpeed()
 	{
-	   return 0;
+	   return speed;
 	}
 
 	public void move(String direction)
 	{
+		
+		if (direction.equals("LEFT")){
+			setX(getX()-getSpeed());
+		}
+		else if (direction.equals("RIGHT")){
+			setX(getX()+getSpeed());
+		}
+		else if (direction.equals("UP")){
+			setY(getY()-getSpeed());
+		}
+		else{
+			setY(getY()+getSpeed());
+		}
+		
 		//add code here
 	}
 
