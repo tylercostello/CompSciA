@@ -20,11 +20,14 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Alien alienOne;
 	private Alien alienTwo;
 	private Ammo ammo;
+	private AlienHorde horde;
+	private Bullets shots;
+	private int ammoDelay;
 
 	/* uncomment once you are ready for this part
 	 *
-   private AlienHorde horde;
-	private Bullets shots;
+   
+	
 	*/
 
 	private boolean[] keys;
@@ -33,12 +36,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	public OuterSpace()
 	{
 		setBackground(Color.black);
-
+		horde = new AlienHorde(20);
 		keys = new boolean[5];
-		ship = new Ship(0,0,50,50,5);
-		alienOne = new Alien(50,50,50,50,10);
-		alienTwo = new Alien(200,50,50,50,10);
-		ammo = new Ammo(100,0,0);
+		ship = new Ship(0,0,50,50,3);
+		shots = new Bullets();
+//		alienOne = new Alien(50,50,50,50,10);
+//		alienTwo = new Alien(200,50,50,50,10);
+		//ammo = new Ammo(100,0,0);
 		//instantiate other instance variables
 		//Ship, Alien
 
@@ -90,9 +94,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 		if(keys[4] == true)
 		{
-			ammo.setX((int)(ship.getX()+0.5*ship.getWidth()));
-			ammo.setY(ship.getY());
-			ammo.setSpeed(10);
+			if (ammoDelay>=100){
+				shots.add(new Ammo((int)(ship.getX()+0.5*ship.getWidth()),ship.getY(),10));
+				ammoDelay=0;
+			}
+			//ammo.setX((int)(ship.getX()+0.5*ship.getWidth()));
+			//ammo.setY(ship.getY());
+			//ammo.setSpeed(10);
 		}
 
 		//add code to move Ship, Alien, etc.
@@ -100,13 +108,26 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 
-
+//		if (ammo.getX()>=alienOne.getX() && ammo.getX()<=alienOne.getX()+alienOne.getWidth()){
+//				if (ammo.getY()>=alienOne.getY() &&  ammo.getY()<=alienOne.getY()+alienOne.getHeight()){
+//					System.out.println("Collision");
+//				}
+//		
+//		}
+		
+		ammoDelay++;
 		twoDGraph.drawImage(back, null, 0, 0);
 		ship.draw(window);
-		alienOne.draw(window);
-		alienTwo.draw(window);
-		ammo.move("UP");
-		ammo.draw(window);
+		horde.removeDeadOnes(shots.getList());
+		horde.moveEmAll();
+		horde.drawEmAll(window);
+		shots.cleanEmUp();
+		shots.moveEmAll();
+		shots.drawEmAll(window);
+//		alienOne.draw(window);
+//		alienTwo.draw(window);
+		//ammo.move("UP");
+		//ammo.draw(window);
 	}
 
 
