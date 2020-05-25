@@ -19,6 +19,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
+	private Ammo ammo;
 
 	/* uncomment once you are ready for this part
 	 *
@@ -34,9 +35,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		setBackground(Color.black);
 
 		keys = new boolean[5];
-		ship = new Ship(0,0,100,100,5);
-		alienOne = new Alien(50,50,100,100,10);
-		alienTwo = new Alien(200,50,100,100,10);
+		ship = new Ship(0,0,50,50,5);
+		alienOne = new Alien(50,50,50,50,10);
+		alienTwo = new Alien(200,50,50,50,10);
+		ammo = new Ammo(100,0,0);
 		//instantiate other instance variables
 		//Ship, Alien
 
@@ -86,6 +88,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			ship.move("DOWN");
 		}
+		if(keys[4] == true)
+		{
+			ammo.setX((int)(ship.getX()+0.5*ship.getWidth()));
+			ammo.setY(ship.getY());
+			ammo.setSpeed(10);
+		}
 
 		//add code to move Ship, Alien, etc.
 
@@ -97,7 +105,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		ship.draw(window);
 		alienOne.draw(window);
 		alienTwo.draw(window);
-
+		ammo.move("UP");
+		ammo.draw(window);
 	}
 
 
