@@ -80,6 +80,13 @@ public class Alien extends MovingThing
 
 	public void draw( Graphics window )
 	{
+	int sideInt = (int)(Math.random()*2);
+	if (sideInt==0){
+		move("LEFT");
+	}
+	else{
+		move("RIGHT");
+	}
    	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
 
