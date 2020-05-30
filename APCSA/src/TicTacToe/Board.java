@@ -17,6 +17,13 @@ public class Board {
 			System.out.println();
 		}
 	}
+	public boolean makeMove(int player, int r, int c){
+		if (gameBoard[r][c]==0){
+			gameBoard[r][c]=player;
+			return true;
+		}
+		return false;
+	}
 	public int checkWin(){
 		//check rows
 		for (int r=0;r<3;r++){
