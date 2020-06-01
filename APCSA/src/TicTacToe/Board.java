@@ -3,14 +3,17 @@ package TicTacToe;
 public class Board {
 	private int[][] gameBoard = new int[3][3];
 	public Board(){
+		resetBoard();
+	}
+	public int[][] getBoard(){
+		return gameBoard;
+	}
+	public void resetBoard(){
 		for (int r=0;r<3;r++){
 			for (int c=0;c<3;c++){
 				gameBoard[r][c]=0;
 			}
 		}
-	}
-	public int[][] getBoard(){
-		return gameBoard;
 	}
 	public void displayBoard(){
 		for (int r=0;r<3;r++){
