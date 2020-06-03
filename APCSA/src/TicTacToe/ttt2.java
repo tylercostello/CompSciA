@@ -8,28 +8,43 @@ import javax.swing.JTextField;
 
 import java.awt.*;
 public class ttt2 {
-	  JPanel cards;
+	  private static JPanel cards;
 	  public static void main(String[] args) {
-		  	JFrame frame = new JFrame("CardLayoutDemo");
+		  	JFrame frame = new JFrame("Tic Tac Toe");
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setSize(800,800);
-	        ttt2 thecst=new ttt2();
+	        
 	        JPanel card1 = new JPanel();
-	    
-	        card1.add(new JButton("Button 1"));
-	        card1.add(new JButton("Button 2"));
-	        card1.add(new JButton("Button 3"));
+	        card1.add(new JButton("New Game"));
+	        card1.add(new JButton("Leaderboard"));
+	        
 	        JPanel card2 = new JPanel();
-	        card2.add(new JTextField("TextField", 20));
-	     
-	        thecst.cards = new JPanel(new CardLayout());
-	        thecst.cards.add(card1,"1");
-	        thecst.cards.add(card2,"2");
-	        frame.add(thecst.cards, BorderLayout.CENTER);
-	        CardLayout cl = (CardLayout)(thecst.cards.getLayout());
-	        System.out.println(thecst.cards.getLayout().toString());
-	        cl.show(thecst.cards, "1");
-	        frame.pack();
+	        card2.add(new JTextField("Player1", 20));
+	        card2.add(new JTextField("Player2", 20));
+	        
+	        
+	        JPanel card3 = new JPanel();
+	        card3.setLayout(new GridLayout(1,1));
+	        //card3.setSize(800,800);
+	      //  card3.setLocationRelativeTo(null);
+	      //0  card3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			Game game = new Game(new Player(), new Player());
+			((Component)game).setFocusable(true);
+
+			card3.add(game, BorderLayout.CENTER);
+
+			
+	        
+	        
+	        cards = new JPanel(new CardLayout());
+	        cards.add(card1,"1");
+	        cards.add(card2,"2");
+	        cards.add(card3,"3");
+	        frame.add(cards, BorderLayout.CENTER);
+	        CardLayout cl = (CardLayout)(cards.getLayout());
+	        //System.out.println(cards.getLayout().toString());
+	        cl.show(cards, "3");
+
 	        frame.setVisible(true);
 	        
 	        

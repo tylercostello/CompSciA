@@ -4,10 +4,11 @@ import java.awt.event.*;
 import java.util.Arrays;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 //graphics code taken from starfighter
 //text box and buttons from https://www.javatpoint.com/java-awt-textfield
-public class Game extends Canvas implements Runnable, MouseListener,ActionListener {
+public class Game extends JPanel implements Runnable, MouseListener,ActionListener {
 	private int scene=3;
 	private BufferedImage back;
 	private int gameState;
@@ -128,6 +129,7 @@ public class Game extends Canvas implements Runnable, MouseListener,ActionListen
 		//System.out.println(gameState);
 
 		twoDGraph.drawImage(back, null, 0, 0);
+		System.out.println("here");
 
 	}
 	private void sceneOne(Graphics graphToBack){
