@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 //graphics code taken from starfighter
 //text box and buttons from https://www.javatpoint.com/java-awt-textfield
-public class Game extends JPanel implements Runnable, MouseListener,ActionListener {
+public class Game extends Canvas implements Runnable, MouseListener,ActionListener {
 	private int scene=3;
 	private BufferedImage back;
 	private int gameState;
@@ -129,7 +129,7 @@ public class Game extends JPanel implements Runnable, MouseListener,ActionListen
 		//System.out.println(gameState);
 
 		twoDGraph.drawImage(back, null, 0, 0);
-		System.out.println("here");
+		//System.out.println("here");
 
 	}
 	private void sceneOne(Graphics graphToBack){
@@ -160,6 +160,7 @@ public class Game extends JPanel implements Runnable, MouseListener,ActionListen
 			}
 		}
 		gameState = board.checkWin();
+		
 		if (gameState!=0){
 			scene=4;
 		}
