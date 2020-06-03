@@ -1,5 +1,6 @@
 package TicTacToe;
 import java.awt.Canvas;
+
 import java.awt.Component;
 import java.awt.GraphicsConfiguration;
 import java.awt.MouseInfo;
@@ -13,7 +14,7 @@ public class TTTrunner extends JFrame{
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 800;
 	public TTTrunner(){
-		super("STARFIGHTER");
+		super("Tic Tac Toe");
 		setSize(WIDTH,HEIGHT);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

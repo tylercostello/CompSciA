@@ -1,26 +1,19 @@
 package TicTacToe;
-
+import java.awt.*;  
+import java.awt.event.*;  
 import java.util.Arrays;
-import java.awt.Button;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.MouseInfo;
-import java.awt.Point;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 
 //graphics code taken from starfighter
-
-public class Game extends Canvas implements Runnable, MouseListener {
+//text box and buttons from https://www.javatpoint.com/java-awt-textfield
+public class Game extends Canvas implements Runnable, MouseListener,ActionListener {
+	private int scene=3;
 	private BufferedImage back;
-	int gameState;
+	private int gameState;
 	// X testX = new X(1,0);
 	// O testO = new O(1,1);
-	int turn = 1;
+	private int turn = 1;
 	Board board = new Board();
 
 	public Game(Player player1, Player player2) {
@@ -67,6 +60,31 @@ public class Game extends Canvas implements Runnable, MouseListener {
 
 		graphToBack.setColor(Color.WHITE);
 		graphToBack.fillRect(0, 0, 800, 600);
+		
+		if(scene==1){
+			sceneOne(graphToBack);
+		}
+		else if(scene==2){
+			
+		}
+		else if(scene==3){
+			sceneThree(graphToBack);
+		}
+		else if (scene==4){
+			sceneFour(graphToBack);
+		}
+		/*
+		if (gameState == 0) {
+			sceneThree(graphToBack);	
+		}
+		
+		else{
+			sceneFour(graphToBack);
+		}
+		*/
+		
+		
+		/*
 		if (gameState == 0) {
 			graphToBack.setColor(Color.BLACK);
 
@@ -102,12 +120,62 @@ public class Game extends Canvas implements Runnable, MouseListener {
 			}
 			graphToBack.drawString("Click Anywhere to Play Again", 300, 350);
 		}
+		*/
+		
+		
 
-		gameState = board.checkWin();
+		//gameState = board.checkWin();
 		//System.out.println(gameState);
 
 		twoDGraph.drawImage(back, null, 0, 0);
 
+	}
+	private void sceneOne(Graphics graphToBack){
+
+	}
+	private void sceneTwo(Graphics graphToBack){
+		
+	}
+	private void sceneThree(Graphics graphToBack){
+		graphToBack.setColor(Color.BLACK);
+
+		// add graphics code here
+
+		graphToBack.fillRect(200, 50, 25, 500);
+		graphToBack.fillRect(400, 50, 25, 500);
+		graphToBack.fillRect(50, 200, 500, 25);
+		graphToBack.fillRect(50, 400, 500, 25);
+		// testX.draw(graphToBack);
+		// testO.draw(graphToBack);
+		for (int r = 0; r < 3; r++) {
+			for (int c = 0; c < 3; c++) {
+				if (board.getBoard()[r][c] == 1) {
+					new X(r, c).draw(graphToBack);
+				}
+				if (board.getBoard()[r][c] == 2) {
+					new O(r, c).draw(graphToBack);
+				}
+			}
+		}
+		gameState = board.checkWin();
+		if (gameState!=0){
+			scene=4;
+		}
+	}
+	
+	private void sceneFour(Graphics graphToBack){
+		graphToBack.setColor(Color.BLACK);
+		graphToBack.drawString("Game Over", 300, 300);
+		if (gameState==1){
+		graphToBack.drawString("X wins", 300, 325);
+		}
+		else if (gameState==2){
+			graphToBack.drawString("O wins", 300, 325);
+		}
+		else if (gameState==3){
+			graphToBack.drawString("Stalemate", 300, 325);
+		}
+		graphToBack.drawString("Click Anywhere to Play Again", 300, 350);
 	}
 
 	public void run() {
@@ -125,7 +193,6 @@ public class Game extends Canvas implements Runnable, MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		// Point p = MouseInfo.getPointerInfo().getLocation();
 		int x = (int) arg0.getPoint().getX();
 		int y = (int) arg0.getPoint().getY();
 		// System.out.println(((y-40)/200)+" "+((y-40)/200));
@@ -140,7 +207,8 @@ public class Game extends Canvas implements Runnable, MouseListener {
 		else{
 			gameState=0;
 			board.resetBoard();
-			System.out.println("here");
+			scene=3;
+			//System.out.println("here");
 		}
 		// board.displayBoard();
 
@@ -176,6 +244,12 @@ public class Game extends Canvas implements Runnable, MouseListener {
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
