@@ -1,0 +1,230 @@
+package FinalTTT;
+
+//https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/layout/CardLayoutDemoProject/src/layout/CardLayoutDemo.java
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
+public class ttt2 {
+	private static JPanel cards;
+	private static JButton b1, b2, b3, b4, b5, b6, b7;
+	private static JTextField t1, t2;
+	private static JTextArea l1, l2;
+	private static Game2 game;
+	private static Player p1, p2;
+	private static boolean gameFlag;
+
+	public static void main(String[] args) {
+		gameFlag = false;
+		Leaderboard leaderboard = new Leaderboard();
+		// ArrayList<Player> leaderboard = new ArrayList<Player>();
+		// leaderboard.add(new Player("test1"));
+		// System.out.println(searchFor(leaderboard,"test2"));
+
+		JFrame frame = new JFrame("Tic Tac Toe");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(800, 800);
+		game = new Game2(new Player(), new Player());
+		JPanel card1 = new JPanel();
+		// card1.add(new Button("New Game"));
+		b1 = new JButton("New Game");
+
+		card1.add(b1);
+		b6 = new JButton("Leaderboard");
+		card1.add(b6);
+
+		JPanel card2 = new JPanel();
+		t1 = new JTextField("Player1", 20);
+		t2 = new JTextField("Player2", 20);
+		card2.add(t1);
+		card2.add(t2);
+		// card2.add(new JTextField("Player2", 20));
+		b4 = new JButton("Submit");
+		card2.add(b4);
+
+		JPanel card3 = new JPanel();
+		card3.setLayout(new GridLayout(1, 1));
+		// card3.setSize(800,800);
+		// card3.setLocationRelativeTo(null);
+		// card3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JPanel card4 = new JPanel();
+		b3 = new JButton("New Game");
+		b7 = new JButton("Leaderboard");
+		card4.add(b3);
+		card4.add(b7);
+		l1 = new JTextArea("");
+		// card4.add(new JTextArea("Game Over"));
+		JPanel card5 = new JPanel();
+		b5 = new JButton("Back");
+		card5.add(b5);
+		l2 = new JTextArea("");
+
+		cards = new JPanel(new CardLayout());
+		cards.add(card1, "1");
+		cards.add(card2, "2");
+		cards.add(card3, "3");
+		cards.add(card4, "4");
+		cards.add(card5, "5");
+		frame.add(cards, BorderLayout.CENTER);
+		CardLayout cl = (CardLayout) (cards.getLayout());
+		// System.out.println(cards.getLayout().toString());
+		cl.show(cards, "1");
+
+		frame.setVisible(true);
+		// https://www.tutorialspoint.com/swing/swing_jbutton.htm
+
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// System.out.println("here");
+				if (!gameFlag) {
+					cl.show(cards, "2");
+				} else {
+					cl.show(cards, "3");
+				}
+			}
+		});
+		b3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// System.out.println("here");
+				cl.show(cards, "3");
+			}
+		});
+		// submit button
+		b4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gameFlag = true;
+				// System.out.println("here");
+				p1 = new Player(t1.getText());
+				// System.out.println(t1.getText());
+
+				p2 = new Player(t2.getText());
+				// System.out.println(t2.getText());
+
+				cl.show(cards, "3");
+				game = new Game2(p1, p2);
+				((Component) game).setFocusable(true);
+
+				card3.add(game, BorderLayout.CENTER);
+			}
+		});
+		b5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// System.out.println("here");
+				cl.show(cards, "1");
+			}
+		});
+		b6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// System.out.println("here");
+				card5.remove(l2);
+				l2.setText(leaderboard.toString());
+				card5.add(l2);
+				cl.show(cards, "5");
+			}
+		});
+		b7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// System.out.println("here");
+				card5.remove(l2);
+				l2.setText(leaderboard.toString());
+				card5.add(l2);
+				cl.show(cards, "5");
+			}
+		});
+
+		while (true) {
+			if (game.scene == 4) {
+				game.scene = 3;
+				// System.out.println("here2");
+				// System.out.println(game.gameState);
+
+				int gameEnd = game.gameState;
+				String gameString = "";
+				if (gameEnd == 1) {
+					gameString = " " + p1.getUsername() + " wins";
+					leaderboard.addGame(p1, true);
+					leaderboard.addGame(p2, false);
+					leaderboard.displayLeaderboard();
+					/*
+					 * if (searchFor(leaderboard,p1.getUsername())==-1){
+					 * leaderboard.add(new Player(p1.getUsername(),0,0));
+					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
+					 * addGame(true); } else{
+					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
+					 * addGame(true); }
+					 * 
+					 * if (searchFor(leaderboard,p2.getUsername())==-1){
+					 * leaderboard.add(new Player(p2.getUsername(),0,0));
+					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
+					 * addGame(false); } else{
+					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
+					 * addGame(false); }
+					 */
+
+					// gameString=" X wins";
+				} else if (gameEnd == 2) {
+					gameString = " " + p2.getUsername() + " wins";
+					leaderboard.addGame(p1, false);
+					leaderboard.addGame(p2, true);
+					leaderboard.displayLeaderboard();
+					// gameString=" O wins";
+					/*
+					 * if (searchFor(leaderboard,p1.getUsername())==-1){
+					 * leaderboard.add(new Player(p1.getUsername(),0,0));
+					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
+					 * addGame(false); } else{
+					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
+					 * addGame(false); }
+					 * 
+					 * if (searchFor(leaderboard,p2.getUsername())==-1){
+					 * leaderboard.add(new Player(p2.getUsername(),0,0));
+					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
+					 * addGame(true); } else{
+					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
+					 * addGame(true); }
+					 */
+
+				} else {
+					gameString = " Stalemate";
+					leaderboard.addGame(p1, false);
+					leaderboard.addGame(p2, false);
+					leaderboard.displayLeaderboard();
+					/*
+					 * if (searchFor(leaderboard,p1.getUsername())==-1){
+					 * leaderboard.add(new Player(p1.getUsername(),0,0));
+					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
+					 * addGame(false); } else{
+					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
+					 * addGame(false); }
+					 * 
+					 * if (searchFor(leaderboard,p2.getUsername())==-1){
+					 * leaderboard.add(new Player(p2.getUsername(),0,0));
+					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
+					 * addGame(false); } else{
+					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
+					 * addGame(false); }
+					 */
+				}
+				card4.remove(l1);
+				l1.setText("Game Over" + gameString);
+				card4.add(l1);
+
+				cl.show(cards, "4");
+
+			}
+		}
+
+	}
+
+}
