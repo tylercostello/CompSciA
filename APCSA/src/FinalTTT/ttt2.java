@@ -1,6 +1,5 @@
 package FinalTTT;
 
-//https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/layout/CardLayoutDemoProject/src/layout/CardLayoutDemo.java
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
@@ -30,6 +29,10 @@ public class ttt2 {
 		// ArrayList<Player> leaderboard = new ArrayList<Player>();
 		// leaderboard.add(new Player("test1"));
 		// System.out.println(searchFor(leaderboard,"test2"));
+
+		
+		//Source for card code
+		//https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/layout/CardLayoutDemoProject/src/layout/CardLayoutDemo.java
 
 		JFrame frame = new JFrame("Tic Tac Toe");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,6 +85,8 @@ public class ttt2 {
 		cl.show(cards, "1");
 
 		frame.setVisible(true);
+		
+		// Source for button code
 		// https://www.tutorialspoint.com/swing/swing_jbutton.htm
 
 		b1.addActionListener(new ActionListener() {
@@ -155,66 +160,22 @@ public class ttt2 {
 					gameString = " " + p1.getUsername() + " wins";
 					leaderboard.addGame(p1, true);
 					leaderboard.addGame(p2, false);
-					leaderboard.displayLeaderboard();
-					/*
-					 * if (searchFor(leaderboard,p1.getUsername())==-1){
-					 * leaderboard.add(new Player(p1.getUsername(),0,0));
-					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
-					 * addGame(true); } else{
-					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
-					 * addGame(true); }
-					 * 
-					 * if (searchFor(leaderboard,p2.getUsername())==-1){
-					 * leaderboard.add(new Player(p2.getUsername(),0,0));
-					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
-					 * addGame(false); } else{
-					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
-					 * addGame(false); }
-					 */
+					//leaderboard.displayLeaderboard();
 
 					// gameString=" X wins";
 				} else if (gameEnd == 2) {
 					gameString = " " + p2.getUsername() + " wins";
 					leaderboard.addGame(p1, false);
 					leaderboard.addGame(p2, true);
-					leaderboard.displayLeaderboard();
+					//leaderboard.displayLeaderboard();
 					// gameString=" O wins";
-					/*
-					 * if (searchFor(leaderboard,p1.getUsername())==-1){
-					 * leaderboard.add(new Player(p1.getUsername(),0,0));
-					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
-					 * addGame(false); } else{
-					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
-					 * addGame(false); }
-					 * 
-					 * if (searchFor(leaderboard,p2.getUsername())==-1){
-					 * leaderboard.add(new Player(p2.getUsername(),0,0));
-					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
-					 * addGame(true); } else{
-					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
-					 * addGame(true); }
-					 */
 
 				} else {
 					gameString = " Stalemate";
 					leaderboard.addGame(p1, false);
 					leaderboard.addGame(p2, false);
-					leaderboard.displayLeaderboard();
-					/*
-					 * if (searchFor(leaderboard,p1.getUsername())==-1){
-					 * leaderboard.add(new Player(p1.getUsername(),0,0));
-					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
-					 * addGame(false); } else{
-					 * leaderboard.get(searchFor(leaderboard,p1.getUsername())).
-					 * addGame(false); }
-					 * 
-					 * if (searchFor(leaderboard,p2.getUsername())==-1){
-					 * leaderboard.add(new Player(p2.getUsername(),0,0));
-					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
-					 * addGame(false); } else{
-					 * leaderboard.get(searchFor(leaderboard,p2.getUsername())).
-					 * addGame(false); }
-					 */
+					//leaderboard.displayLeaderboard();
+
 				}
 				card4.remove(l1);
 				l1.setText("Game Over" + gameString);

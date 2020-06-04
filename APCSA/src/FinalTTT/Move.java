@@ -6,13 +6,12 @@ public class Move {
 	int x;
 	int y;
 
-	public Move(int r, int c){
-		row=r;
-		column=c;
-		x=column*200+60;
-		y=row*200+60;
+	public Move(int r, int c) {
+		row = r;
+		column = c;
+		x = column * 200 + 60;
+		y = row * 200 + 60;
 	}
-	
 
 	public int getRow() {
 		return row;
@@ -45,7 +44,5 @@ public class Move {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	
-	
+
 }

@@ -11,8 +11,8 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-public class Game2 extends JPanel implements Runnable, MouseListener,ActionListener {
-	public volatile int scene=3;
+public class Game2 extends JPanel implements Runnable, MouseListener, ActionListener {
+	public volatile int scene = 3;
 	private BufferedImage back;
 	public int gameState;
 	// X testX = new X(1,0);
@@ -25,16 +25,17 @@ public class Game2 extends JPanel implements Runnable, MouseListener,ActionListe
 		setVisible(true);
 		this.addMouseListener(this);
 		new Thread(this).start();
-		
 
 	}
-	public int getScene(){
+
+	public int getScene() {
 		return scene;
 	}
-	public void setScene(int newScene){
-		scene=newScene;
+
+	public void setScene(int newScene) {
+		scene = newScene;
 	}
-	
+
 	public Board getBoard() {
 		return board;
 	}
@@ -55,7 +56,7 @@ public class Game2 extends JPanel implements Runnable, MouseListener,ActionListe
 	}
 
 	public void paint(Graphics window) {
-		//System.out.println("e");
+		// System.out.println("e");
 		// set up the double buffering to make the game animation nice and
 		// smooth
 		Graphics2D twoDGraph = (Graphics2D) window;
@@ -71,35 +72,34 @@ public class Game2 extends JPanel implements Runnable, MouseListener,ActionListe
 
 		graphToBack.setColor(Color.WHITE);
 		graphToBack.fillRect(0, 0, 800, 600);
-		
-		if(scene==1){
+
+		if (scene == 1) {
 			sceneOne(graphToBack);
-		}
-		else if(scene==2){
-			
-		}
-		else if(scene==3){
+		} else if (scene == 2) {
+
+		} else if (scene == 3) {
 			sceneThree(graphToBack);
-		}
-		else if (scene==4){
+		} else if (scene == 4) {
 			sceneFour(graphToBack);
 		}
-		
 
-		//gameState = board.checkWin();
-		//System.out.println(1);
+		// gameState = board.checkWin();
+		// System.out.println(1);
 
 		twoDGraph.drawImage(back, null, 0, 0);
-		//System.out.println("here");
+		// System.out.println("here");
 
 	}
-	private void sceneOne(Graphics graphToBack){
+
+	private void sceneOne(Graphics graphToBack) {
 
 	}
-	private void sceneTwo(Graphics graphToBack){
-		
+
+	private void sceneTwo(Graphics graphToBack) {
+
 	}
-	private void sceneThree(Graphics graphToBack){
+
+	private void sceneThree(Graphics graphToBack) {
 		graphToBack.setColor(Color.BLACK);
 
 		// add graphics code here
@@ -121,25 +121,23 @@ public class Game2 extends JPanel implements Runnable, MouseListener,ActionListe
 			}
 		}
 		gameState = board.checkWin();
-		if (gameState!=0){
-			//gameState=0;
-			
+		if (gameState != 0) {
+			// gameState=0;
+
 			board.resetBoard();
-			//scene=3;
-			scene=4;
+			// scene=3;
+			scene = 4;
 		}
 	}
-	
-	private void sceneFour(Graphics graphToBack){
+
+	private void sceneFour(Graphics graphToBack) {
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.drawString("Game Over", 300, 300);
-		if (gameState==1){
-		graphToBack.drawString("X wins", 300, 325);
-		}
-		else if (gameState==2){
+		if (gameState == 1) {
+			graphToBack.drawString("X wins", 300, 325);
+		} else if (gameState == 2) {
 			graphToBack.drawString("O wins", 300, 325);
-		}
-		else if (gameState==3){
+		} else if (gameState == 3) {
 			graphToBack.drawString("Stalemate", 300, 325);
 		}
 		graphToBack.drawString("Click Anywhere to Play Again", 300, 350);
@@ -170,12 +168,11 @@ public class Game2 extends JPanel implements Runnable, MouseListener,ActionListe
 			if (board.makeMove(turn, row, column)) {
 				invertTurn();
 			}
-		}
-		else{
-			gameState=0;
+		} else {
+			gameState = 0;
 			board.resetBoard();
-			scene=3;
-			//System.out.println("here");
+			scene = 3;
+			// System.out.println("here");
 		}
 		// board.displayBoard();
 
@@ -216,9 +213,7 @@ public class Game2 extends JPanel implements Runnable, MouseListener,ActionListe
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
-
-
