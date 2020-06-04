@@ -125,7 +125,6 @@ public class ttt2 {
 		});
 		b6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println("here");
 				card5.remove(l2);
 				l2.setText(leaderboard.toString());
 				card5.add(l2);
@@ -134,7 +133,6 @@ public class ttt2 {
 		});
 		b7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println("here");
 				card5.remove(l2);
 				l2.setText(leaderboard.toString());
 				card5.add(l2);
