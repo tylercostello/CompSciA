@@ -3,21 +3,47 @@ package TicTacToe;
 public class Player {
 	int winCount=0;
 	double winPercent=0;
-	boolean isX=false;
+	//boolean isX=false;
 	String username="";
 	int totalGames=0;
 	public Player(){
 
 	}
-	public Player(String username, boolean isX){
+	public Player(String username){
 		this.username=username;
-		this.isX=isX;
+		//this.isX=isX;
 	}
 	public Player(String username, int winCount, int totalGames){
 		this.username=username;
 		this.winCount=winCount;
 		this.totalGames=totalGames;
 		winPercent=(double)winCount/totalGames;
+	}
+	
+	
+	public int getWinCount() {
+		return winCount;
+	}
+	public void setWinCount(int winCount) {
+		this.winCount = winCount;
+	}
+	public double getWinPercent() {
+		return winPercent;
+	}
+	public void setWinPercent(double winPercent) {
+		this.winPercent = winPercent;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public int getTotalGames() {
+		return totalGames;
+	}
+	public void setTotalGames(int totalGames) {
+		this.totalGames = totalGames;
 	}
 	public void addGame(boolean wasWin){
 		totalGames++;

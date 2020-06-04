@@ -12,15 +12,24 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 public class ttt2 {
 	  private static JPanel cards;
-	 private static JButton b1,b2,b3;
+	 private static JButton b1,b2,b3,b4;
+	 private static JTextField t1,t2;
 	 private static JLabel l1;
+	 private static Game2 game;
+	 private static Player p1,p2;
 	  public static void main(String[] args) {
+		  	ArrayList<Player> leaderboard = new ArrayList<Player>();
+		  	//leaderboard.add(new Player("test1"));
+		  	//System.out.println(searchFor(leaderboard,"test2"));
+		  	
+		  	
 		  	JFrame frame = new JFrame("Tic Tac Toe");
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setSize(800,800);
-	        
+	        game=new Game2(new Player(), new Player());
 	        JPanel card1 = new JPanel();
 	       // card1.add(new Button("New Game"));
 	        b1=new JButton("New Game");
@@ -29,26 +38,27 @@ public class ttt2 {
 	        card1.add(new JButton("Leaderboard"));
 	        
 	        JPanel card2 = new JPanel();
-	        card2.add(new JTextField("Player1", 20));
-	        card2.add(new JTextField("Player2", 20));
-	        
+	        t1=new JTextField("Player1", 20);
+	        t2=new JTextField("Player2", 20);
+	        card2.add(t1);
+	        card2.add(t2);
+	        //card2.add(new JTextField("Player2", 20));
+	        b4=new JButton("Submit");
+	        card2.add(b4);
 	        
 	        JPanel card3 = new JPanel();
 	        card3.setLayout(new GridLayout(1,1));
 	        //card3.setSize(800,800);
 	      //  card3.setLocationRelativeTo(null);
 	      //  card3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			Game2 game = new Game2(new Player(), new Player());
-			((Component)game).setFocusable(true);
-
-			card3.add(game, BorderLayout.CENTER);
+			
 
 			 JPanel card4 = new JPanel();
 			 b3=new JButton("New Game");
 			 card4.add(b3);
 			 l1=new JLabel("");
 			 //card4.add(new JLabel("Game Over"));
-	        
+			
 	        
 	        cards = new JPanel(new CardLayout());
 	        cards.add(card1,"1");
@@ -62,10 +72,11 @@ public class ttt2 {
 
 	        frame.setVisible(true);
 	        //https://www.tutorialspoint.com/swing/swing_jbutton.htm
+
 	        b1.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
 	            	//System.out.println("here");
-	            	cl.show(cards, "3");
+	            	cl.show(cards, "2");
 	            }          
 	         });
 	        b3.addActionListener(new ActionListener() {
@@ -74,28 +85,99 @@ public class ttt2 {
 	            	cl.show(cards, "3");
 	            }          
 	         });
+	        //submit button
+	        b4.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	            	//System.out.println("here");
+	            	p1=new Player(t1.getText());
+	            	System.out.println(t1.getText());
+	            	
+	            	p2=new Player(t2.getText());
+	            	System.out.println(t2.getText());
+	            	
+	            	
+	            	cl.show(cards, "3");
+	            	game = new Game2(p1, p2);
+	    			((Component)game).setFocusable(true);
+
+	    			card3.add(game, BorderLayout.CENTER);
+	            }          
+	         });
+	        
+	        
+	       
+	        
+	        
 	        while (true){
 	        	if (game.scene==4){
 	        		game.scene=3;
 	        		//System.out.println("here2");
 	        		//System.out.println(game.gameState);
+	        		
 	        		int gameEnd=game.gameState;
 	        		String gameString="";
 	        		if (gameEnd==1){
-	        			gameString=" X wins";
+	        			gameString=" "+p1.getUsername()+" wins";
+	        			if (searchFor(leaderboard,p1.getUsername())==-1){
+	        				leaderboard.add(new Player(p1.getUsername(),0,0));
+	        				leaderboard.get(searchFor(leaderboard,p1.getUsername())).addGame(true);
+	        			}
+	        			else{
+	        				leaderboard.get(searchFor(leaderboard,p1.getUsername())).addGame(true);
+	        			}
+	        			
+	        			if (searchFor(leaderboard,p2.getUsername())==-1){
+	        				leaderboard.add(new Player(p2.getUsername(),0,0));
+	        				leaderboard.get(searchFor(leaderboard,p2.getUsername())).addGame(false);
+	        			}
+	        			else{
+	        				leaderboard.get(searchFor(leaderboard,p2.getUsername())).addGame(false);
+	        			}
+	        			
+	        			//gameString=" X wins";
 	        		}
 	        		else if (gameEnd==2){
-	        			gameString=" O wins";
+	        			gameString=" "+p2.getUsername()+" wins";
+	        			//gameString=" O wins";
+	        			if (searchFor(leaderboard,p1.getUsername())==-1){
+	        				leaderboard.add(new Player(p1.getUsername(),0,0));
+	        				leaderboard.get(searchFor(leaderboard,p1.getUsername())).addGame(false);
+	        			}
+	        			else{
+	        				leaderboard.get(searchFor(leaderboard,p1.getUsername())).addGame(false);
+	        			}
+	        			
+	        			if (searchFor(leaderboard,p2.getUsername())==-1){
+	        				leaderboard.add(new Player(p2.getUsername(),0,0));
+	        				leaderboard.get(searchFor(leaderboard,p2.getUsername())).addGame(true);
+	        			}
+	        			else{
+	        				leaderboard.get(searchFor(leaderboard,p2.getUsername())).addGame(true);
+	        			}
+	        			
 	        		}
 	        		else {
 	        			gameString=" Stalemate";
+	        			
+	        			if (searchFor(leaderboard,p1.getUsername())==-1){
+	        				leaderboard.add(new Player(p1.getUsername(),0,0));
+	        				leaderboard.get(searchFor(leaderboard,p1.getUsername())).addGame(false);
+	        			}
+	        			else{
+	        				leaderboard.get(searchFor(leaderboard,p1.getUsername())).addGame(false);
+	        			}
+	        			
+	        			if (searchFor(leaderboard,p2.getUsername())==-1){
+	        				leaderboard.add(new Player(p2.getUsername(),0,0));
+	        				leaderboard.get(searchFor(leaderboard,p2.getUsername())).addGame(false);
+	        			}
+	        			else{
+	        				leaderboard.get(searchFor(leaderboard,p2.getUsername())).addGame(false);
+	        			}
 	        		}
 	        		card4.remove(l1);
 	        		l1.setText("Game Over"+gameString);
 	        		card4.add(l1);
-	        		//card4.repaint();
-	        		
-	        		//card4.add(new JLabel("Game Over"+gameString));
 	        		
 	        		cl.show(cards, "4");
 	        		
@@ -103,6 +185,19 @@ public class ttt2 {
 	        }
 	        
 	  }
+	  public static int searchFor(ArrayList<Player> leaderboard,String playerName){
+		  for (int i=0;i<leaderboard.size();i++){
+			  if (leaderboard.get(i).getUsername().equals(playerName)){
+				  return i;
+			  }
+		  }
+		  return -1;
+	  }
+	  
+	  
+	  
+	  
+	  
 }
 class Game2 extends JPanel implements Runnable, MouseListener,ActionListener {
 	public volatile int scene=3;
