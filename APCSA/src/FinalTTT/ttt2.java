@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ttt2 {
@@ -26,6 +28,12 @@ public class ttt2 {
 	public static void main(String[] args) {
 		gameFlag = false;
 		Leaderboard leaderboard = new Leaderboard();
+		try {
+			leaderboard.initializeLeaderboard();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		// ArrayList<Player> leaderboard = new ArrayList<Player>();
 		// leaderboard.add(new Player("test1"));
 		// System.out.println(searchFor(leaderboard,"test2"));
@@ -177,6 +185,13 @@ public class ttt2 {
 					//leaderboard.displayLeaderboard();
 
 				}
+				try {
+					leaderboard.saveLeaderboard();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				card4.remove(l1);
 				l1.setText("Game Over" + gameString);
 				card4.add(l1);

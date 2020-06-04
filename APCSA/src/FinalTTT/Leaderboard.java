@@ -1,9 +1,39 @@
 package FinalTTT;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Leaderboard {
 	private ArrayList<Player> leaderboard = new ArrayList<Player>();
+
+	public void initializeLeaderboard() throws FileNotFoundException {
+		//https://www.geeksforgeeks.org/different-ways-reading-text-file-java/
+		File file = new File("C:/Users/tyc64/Desktop/CompSciGithub/CompSciA/APCSA/src/FinalTTT/Leaderboard.txt");
+		Scanner sc = new Scanner(file);
+		
+		String[] temp = null;
+		while (sc.hasNextLine()){
+			temp = sc.nextLine().split(",");
+			leaderboard.add(new Player(temp[0],Integer.valueOf(temp[1]),Integer.valueOf(temp[2])));
+			//Player tempPlayer = new Player(temp[0],Integer.valueOf(temp[1]),Integer.valueOf(temp[2]));
+			//System.out.println(tempPlayer.toString());
+		}
+			//System.out.println(sc.nextLine());
+	}
+	
+	public void saveLeaderboard() throws IOException{
+		//File file = new File("C:/Users/tyc64/Desktop/CompSciGithub/CompSciA/APCSA/src/FinalTTT/Leaderboard.txt");
+		PrintWriter myWriter = new PrintWriter("C:/Users/tyc64/Desktop/CompSciGithub/CompSciA/APCSA/src/FinalTTT/Leaderboard.txt");
+		myWriter.write(toCommaString());
+	    myWriter.close();
+	}
 
 	public ArrayList<Player> getLeaderboard() {
 		return leaderboard;
@@ -41,6 +71,13 @@ public class Leaderboard {
 		String returnString = "";
 		for (Player player : leaderboard) {
 			returnString += (player.toString() + "\n");
+		}
+		return returnString;
+	}
+	public String toCommaString() {
+		String returnString = "";
+		for (Player player : leaderboard) {
+			returnString += (player.toCommaString() + "\n");
 		}
 		return returnString;
 	}
