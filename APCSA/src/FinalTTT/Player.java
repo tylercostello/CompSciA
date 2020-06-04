@@ -3,7 +3,7 @@ package FinalTTT;
 public class Player {
 	int winCount = 0;
 	double winPercent = 0;
-	// boolean isX=false;
+
 	String username = "";
 	int totalGames = 0;
 
@@ -13,7 +13,6 @@ public class Player {
 
 	public Player(String username) {
 		this.username = username;
-		// this.isX=isX;
 	}
 
 	public Player(String username, int winCount, int totalGames) {

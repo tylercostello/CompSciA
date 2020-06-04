@@ -15,8 +15,6 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 	public volatile int scene = 3;
 	private BufferedImage back;
 	public int gameState;
-	// X testX = new X(1,0);
-	// O testO = new O(1,1);
 	private int turn = 1;
 	Board board = new Board();
 
@@ -49,25 +47,16 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 
 	}
 
+	// update and paint taken from starfighter
 	public void update(Graphics window) {
-
-		// System.out.println(((y-40)/200)+" "+x/200);
 		paint(window);
 	}
 
 	public void paint(Graphics window) {
-		// System.out.println("e");
-		// set up the double buffering to make the game animation nice and
-		// smooth
 		Graphics2D twoDGraph = (Graphics2D) window;
-
-		// take a snap shop of the current screen and same it as an image
-		// that is the exact same width and height as the current screen
 		if (back == null)
 			back = (BufferedImage) (createImage(getWidth(), getHeight()));
 
-		// create a graphics reference to the back ground image
-		// we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 
 		graphToBack.setColor(Color.WHITE);
@@ -83,11 +72,7 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 			sceneFour(graphToBack);
 		}
 
-		// gameState = board.checkWin();
-		// System.out.println(1);
-
 		twoDGraph.drawImage(back, null, 0, 0);
-		// System.out.println("here");
 
 	}
 
@@ -102,14 +87,10 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 	private void sceneThree(Graphics graphToBack) {
 		graphToBack.setColor(Color.BLACK);
 
-		// add graphics code here
-
 		graphToBack.fillRect(200, 50, 25, 500);
 		graphToBack.fillRect(400, 50, 25, 500);
 		graphToBack.fillRect(50, 200, 500, 25);
 		graphToBack.fillRect(50, 400, 500, 25);
-		// testX.draw(graphToBack);
-		// testO.draw(graphToBack);
 		for (int r = 0; r < 3; r++) {
 			for (int c = 0; c < 3; c++) {
 				if (board.getBoard()[r][c] == 1) {
@@ -122,10 +103,9 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 		}
 		gameState = board.checkWin();
 		if (gameState != 0) {
-			// gameState=0;
 
 			board.resetBoard();
-			// scene=3;
+
 			scene = 4;
 		}
 	}

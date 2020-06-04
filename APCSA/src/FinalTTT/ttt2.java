@@ -34,13 +34,9 @@ public class ttt2 {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		// ArrayList<Player> leaderboard = new ArrayList<Player>();
-		// leaderboard.add(new Player("test1"));
-		// System.out.println(searchFor(leaderboard,"test2"));
 
-		
-		//Source for card code
-		//https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/layout/CardLayoutDemoProject/src/layout/CardLayoutDemo.java
+		// Source for card code
+		// https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/layout/CardLayoutDemoProject/src/layout/CardLayoutDemo.java
 
 		JFrame frame = new JFrame("Tic Tac Toe");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,7 +89,7 @@ public class ttt2 {
 		cl.show(cards, "1");
 
 		frame.setVisible(true);
-		
+
 		// Source for button code
 		// https://www.tutorialspoint.com/swing/swing_jbutton.htm
 
@@ -168,21 +164,21 @@ public class ttt2 {
 					gameString = " " + p1.getUsername() + " wins";
 					leaderboard.addGame(p1, true);
 					leaderboard.addGame(p2, false);
-					//leaderboard.displayLeaderboard();
+					// leaderboard.displayLeaderboard();
 
 					// gameString=" X wins";
 				} else if (gameEnd == 2) {
 					gameString = " " + p2.getUsername() + " wins";
 					leaderboard.addGame(p1, false);
 					leaderboard.addGame(p2, true);
-					//leaderboard.displayLeaderboard();
+					// leaderboard.displayLeaderboard();
 					// gameString=" O wins";
 
 				} else {
 					gameString = " Stalemate";
 					leaderboard.addGame(p1, false);
 					leaderboard.addGame(p2, false);
-					//leaderboard.displayLeaderboard();
+					// leaderboard.displayLeaderboard();
 
 				}
 				try {
@@ -191,7 +187,7 @@ public class ttt2 {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
 				card4.remove(l1);
 				l1.setText("Game Over" + gameString);
 				card4.add(l1);

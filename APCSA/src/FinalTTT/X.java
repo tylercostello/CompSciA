@@ -18,7 +18,7 @@ public class X extends Move {
 		g2.setStroke(new BasicStroke(10));
 		window.drawPolygon(new int[] { x, x + 100 }, new int[] { y, y + 100 }, 2);
 		window.drawPolygon(new int[] { x + 100, x }, new int[] { y, y + 100 }, 2);
-		// window.fillRect(this.getX(), this.getY(), 100, 100);
+
 	}
 
 }

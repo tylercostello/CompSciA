@@ -17,6 +17,5 @@ public class O extends Move {
 		Graphics2D g2 = (Graphics2D) window;
 		g2.setStroke(new BasicStroke(10));
 		window.drawOval(x, y, 100, 100);
-		// window.fillRect(this.getX(), this.getY(), 100, 100);
 	}
 }
