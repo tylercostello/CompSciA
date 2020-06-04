@@ -1,4 +1,4 @@
-A,1,2
-B,1,2
-Player1,2,4
-Player2,2,4
+A,2,3
+B,1,3
+Player1,12,23
+Player2,10,23

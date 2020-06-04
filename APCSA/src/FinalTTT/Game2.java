@@ -62,25 +62,11 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 		graphToBack.setColor(Color.WHITE);
 		graphToBack.fillRect(0, 0, 800, 600);
 
-		if (scene == 1) {
-			sceneOne(graphToBack);
-		} else if (scene == 2) {
-
-		} else if (scene == 3) {
+		if (scene == 3) {
 			sceneThree(graphToBack);
-		} else if (scene == 4) {
-			sceneFour(graphToBack);
 		}
 
 		twoDGraph.drawImage(back, null, 0, 0);
-
-	}
-
-	private void sceneOne(Graphics graphToBack) {
-
-	}
-
-	private void sceneTwo(Graphics graphToBack) {
 
 	}
 
@@ -110,19 +96,6 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 		}
 	}
 
-	private void sceneFour(Graphics graphToBack) {
-		graphToBack.setColor(Color.BLACK);
-		graphToBack.drawString("Game Over", 300, 300);
-		if (gameState == 1) {
-			graphToBack.drawString("X wins", 300, 325);
-		} else if (gameState == 2) {
-			graphToBack.drawString("O wins", 300, 325);
-		} else if (gameState == 3) {
-			graphToBack.drawString("Stalemate", 300, 325);
-		}
-		graphToBack.drawString("Click Anywhere to Play Again", 300, 350);
-	}
-
 	public void run() {
 		try {
 			while (true) {
@@ -140,10 +113,10 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 		// TODO Auto-generated method stub
 		int x = (int) arg0.getPoint().getX();
 		int y = (int) arg0.getPoint().getY();
-		// System.out.println(((y-40)/200)+" "+((y-40)/200));
+
 		int row = ((y - 40) / 200);
 		int column = x / 200;
-		// board.displayBoard();
+
 		if (gameState == 0) {
 			if (board.makeMove(turn, row, column)) {
 				invertTurn();
@@ -152,9 +125,8 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 			gameState = 0;
 			board.resetBoard();
 			scene = 3;
-			// System.out.println("here");
+
 		}
-		// board.displayBoard();
 
 	}
 

@@ -43,7 +43,7 @@ public class ttt2 {
 		frame.setSize(800, 800);
 		game = new Game2(new Player(), new Player());
 		JPanel card1 = new JPanel();
-		// card1.add(new Button("New Game"));
+
 		b1 = new JButton("New Game");
 
 		card1.add(b1);
@@ -55,15 +55,13 @@ public class ttt2 {
 		t2 = new JTextField("Player2", 20);
 		card2.add(t1);
 		card2.add(t2);
-		// card2.add(new JTextField("Player2", 20));
+
 		b4 = new JButton("Submit");
 		card2.add(b4);
 
 		JPanel card3 = new JPanel();
 		card3.setLayout(new GridLayout(1, 1));
-		// card3.setSize(800,800);
-		// card3.setLocationRelativeTo(null);
-		// card3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
 		JPanel card4 = new JPanel();
 		b3 = new JButton("New Game");
@@ -71,7 +69,6 @@ public class ttt2 {
 		card4.add(b3);
 		card4.add(b7);
 		l1 = new JTextArea("");
-		// card4.add(new JTextArea("Game Over"));
 		JPanel card5 = new JPanel();
 		b5 = new JButton("Back");
 		card5.add(b5);
@@ -85,7 +82,6 @@ public class ttt2 {
 		cards.add(card5, "5");
 		frame.add(cards, BorderLayout.CENTER);
 		CardLayout cl = (CardLayout) (cards.getLayout());
-		// System.out.println(cards.getLayout().toString());
 		cl.show(cards, "1");
 
 		frame.setVisible(true);
@@ -95,7 +91,6 @@ public class ttt2 {
 
 		b1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println("here");
 				if (!gameFlag) {
 					cl.show(cards, "2");
 				} else {
@@ -105,7 +100,6 @@ public class ttt2 {
 		});
 		b3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println("here");
 				cl.show(cards, "3");
 			}
 		});
@@ -113,12 +107,9 @@ public class ttt2 {
 		b4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				gameFlag = true;
-				// System.out.println("here");
 				p1 = new Player(t1.getText());
-				// System.out.println(t1.getText());
 
 				p2 = new Player(t2.getText());
-				// System.out.println(t2.getText());
 
 				cl.show(cards, "3");
 				game = new Game2(p1, p2);
@@ -129,7 +120,6 @@ public class ttt2 {
 		});
 		b5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println("here");
 				cl.show(cards, "1");
 			}
 		});
@@ -155,8 +145,7 @@ public class ttt2 {
 		while (true) {
 			if (game.scene == 4) {
 				game.scene = 3;
-				// System.out.println("here2");
-				// System.out.println(game.gameState);
+				
 
 				int gameEnd = game.gameState;
 				String gameString = "";
@@ -164,21 +153,18 @@ public class ttt2 {
 					gameString = " " + p1.getUsername() + " wins";
 					leaderboard.addGame(p1, true);
 					leaderboard.addGame(p2, false);
-					// leaderboard.displayLeaderboard();
-
-					// gameString=" X wins";
+					
 				} else if (gameEnd == 2) {
 					gameString = " " + p2.getUsername() + " wins";
 					leaderboard.addGame(p1, false);
 					leaderboard.addGame(p2, true);
-					// leaderboard.displayLeaderboard();
-					// gameString=" O wins";
+					
 
 				} else {
 					gameString = " Stalemate";
 					leaderboard.addGame(p1, false);
 					leaderboard.addGame(p2, false);
-					// leaderboard.displayLeaderboard();
+					
 
 				}
 				try {
