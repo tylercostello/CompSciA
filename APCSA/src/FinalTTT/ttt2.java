@@ -18,9 +18,9 @@ import java.util.ArrayList;
 
 public class ttt2 {
 	private static JPanel cards;
-	private static JButton b1, b2, b3, b4, b5, b6, b7;
+	private static JButton b1, b2, b3, b4, b5, b6, b7,b8,b9;
 	private static JTextField t1, t2;
-	private static JTextArea l1, l2;
+	private static JTextArea l1, l2, l3;
 	private static Game2 game;
 	private static Player p1, p2;
 	private static boolean gameFlag;
@@ -49,7 +49,8 @@ public class ttt2 {
 		card1.add(b1);
 		b6 = new JButton("Leaderboard");
 		card1.add(b6);
-
+		b8 = new JButton("Instructions");
+		card1.add(b8);
 		JPanel card2 = new JPanel();
 		t1 = new JTextField("Player1", 20);
 		t2 = new JTextField("Player2", 20);
@@ -74,12 +75,21 @@ public class ttt2 {
 		card5.add(b5);
 		l2 = new JTextArea("");
 
+		JPanel card6 = new JPanel();
+		b9 = new JButton("Back");
+		l3 = new JTextArea("Tic Tac Toe\nBy Tyler Costello\nClick on each square to place your move. Try to get 3 in a row without letting your opponent get 3 in a row.");
+		card6.add(l3);
+		card6.add(b9);
+		
+		
+		
 		cards = new JPanel(new CardLayout());
 		cards.add(card1, "1");
 		cards.add(card2, "2");
 		cards.add(card3, "3");
 		cards.add(card4, "4");
 		cards.add(card5, "5");
+		cards.add(card6, "6");
 		frame.add(cards, BorderLayout.CENTER);
 		CardLayout cl = (CardLayout) (cards.getLayout());
 		cl.show(cards, "1");
@@ -137,6 +147,20 @@ public class ttt2 {
 				l2.setText(leaderboard.toString());
 				card5.add(l2);
 				cl.show(cards, "5");
+			}
+		});
+		
+		b8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				cl.show(cards, "6");
+			}
+		});
+		
+		b9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				cl.show(cards, "1");
 			}
 		});
 
