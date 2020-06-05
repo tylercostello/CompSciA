@@ -20,8 +20,8 @@ public class Player {
 		this.winCount = winCount;
 		this.totalGames = totalGames;
 		winPercent = (double) winCount / totalGames;
-		if(Double.isNaN(winPercent)){
-			winPercent=0.0;
+		if (Double.isNaN(winPercent)) {
+			winPercent = 0.0;
 		}
 	}
 
@@ -67,6 +67,7 @@ public class Player {
 	public String toString() {
 		return getUsername() + " " + getWinCount() + " " + getTotalGames() + " " + getWinPercent();
 	}
+
 	public String toCommaString() {
 		return getUsername() + "," + getWinCount() + "," + getTotalGames();
 	}

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class ttt2 {
 	private static JPanel cards;
-	private static JButton b1, b2, b3, b4, b5, b6, b7,b8,b9;
+	private static JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
 	private static JTextField t1, t2;
 	private static JTextArea l1, l2, l3;
 	private static Game2 game;
@@ -63,7 +63,6 @@ public class ttt2 {
 		JPanel card3 = new JPanel();
 		card3.setLayout(new GridLayout(1, 1));
 
-
 		JPanel card4 = new JPanel();
 		b3 = new JButton("New Game");
 		b7 = new JButton("Leaderboard");
@@ -77,12 +76,11 @@ public class ttt2 {
 
 		JPanel card6 = new JPanel();
 		b9 = new JButton("Back");
-		l3 = new JTextArea("Tic Tac Toe\nBy Tyler Costello\nClick on each square to place your move. Try to get 3 in a row without letting your opponent get 3 in a row.");
+		l3 = new JTextArea(
+				"Tic Tac Toe\nBy Tyler Costello\nClick on each square to place your move. Try to get 3 in a row without letting your opponent get 3 in a row.");
 		card6.add(l3);
 		card6.add(b9);
-		
-		
-		
+
 		cards = new JPanel(new CardLayout());
 		cards.add(card1, "1");
 		cards.add(card2, "2");
@@ -149,17 +147,17 @@ public class ttt2 {
 				cl.show(cards, "5");
 			}
 		});
-		
+
 		b8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				cl.show(cards, "6");
 			}
 		});
-		
+
 		b9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				cl.show(cards, "1");
 			}
 		});
@@ -167,7 +165,6 @@ public class ttt2 {
 		while (true) {
 			if (game.scene == 4) {
 				game.scene = 3;
-				
 
 				int gameEnd = game.gameState;
 				String gameString = "";
@@ -175,18 +172,16 @@ public class ttt2 {
 					gameString = " " + p1.getUsername() + " wins";
 					leaderboard.addGame(p1, true);
 					leaderboard.addGame(p2, false);
-					
+
 				} else if (gameEnd == 2) {
 					gameString = " " + p2.getUsername() + " wins";
 					leaderboard.addGame(p1, false);
 					leaderboard.addGame(p2, true);
-					
 
 				} else {
 					gameString = " Stalemate";
 					leaderboard.addGame(p1, false);
 					leaderboard.addGame(p2, false);
-					
 
 				}
 				try {
