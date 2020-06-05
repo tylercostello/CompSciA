@@ -62,9 +62,7 @@ public class Game2 extends JPanel implements Runnable, MouseListener, ActionList
 		graphToBack.setColor(Color.WHITE);
 		graphToBack.fillRect(0, 0, 800, 600);
 
-		if (scene == 3) {
-			sceneThree(graphToBack);
-		}
+		sceneThree(graphToBack);
 
 		twoDGraph.drawImage(back, null, 0, 0);
 

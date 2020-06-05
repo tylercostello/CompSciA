@@ -42,21 +42,20 @@ public class ttt2 {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800, 800);
 		game = new Game2(new Player(), new Player());
+		
 		JPanel card1 = new JPanel();
-
 		b1 = new JButton("New Game");
-
 		card1.add(b1);
 		b6 = new JButton("Leaderboard");
 		card1.add(b6);
 		b8 = new JButton("Instructions");
 		card1.add(b8);
+		
 		JPanel card2 = new JPanel();
 		t1 = new JTextField("Player1", 20);
 		t2 = new JTextField("Player2", 20);
 		card2.add(t1);
 		card2.add(t2);
-
 		b4 = new JButton("Submit");
 		card2.add(b4);
 
@@ -69,6 +68,7 @@ public class ttt2 {
 		card4.add(b3);
 		card4.add(b7);
 		l1 = new JTextArea("");
+		
 		JPanel card5 = new JPanel();
 		b5 = new JButton("Back");
 		card5.add(b5);

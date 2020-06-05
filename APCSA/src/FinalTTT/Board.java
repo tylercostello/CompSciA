@@ -53,7 +53,7 @@ public class Board {
 		if (gameBoard[0][0] != 0 && gameBoard[0][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][2]) {
 			return gameBoard[0][0];
 		}
-		// check up left
+		// check up right
 		if (gameBoard[2][0] != 0 && gameBoard[2][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[0][2]) {
 			return gameBoard[2][0];
 		}
